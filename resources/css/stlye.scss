@@ -1,0 +1,17 @@
+// global styles
+@import '_variables';
+@import '_global';
+@import '_mixins';
+@import 'form';
+@import 'auth';
+
+
+
+//partials styles
+@import 'navbar';
+@import 'message';
+@import 'asidenav';
+
+
+//main styles
+@import 'dashboard';

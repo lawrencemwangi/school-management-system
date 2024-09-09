@@ -1,0 +1,15 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma,sans-serif;
+}
+
+body{
+    background: $primary-color;
+    color: $secondary-color;
+}
+
+.container{
+    padding: 0.9em 5%;
+}

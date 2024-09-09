@@ -1,0 +1,16 @@
+.auth{
+    margin:3em  auto 0;
+    @include flex-center;
+
+    .custom_form{
+        width: 50%;
+    }
+}
+
+@media screen and (width <=726px) {
+    .auth{
+        .custom_form{
+            width: 80%;
+        }
+    }
+}

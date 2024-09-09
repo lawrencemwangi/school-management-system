@@ -1,0 +1,8 @@
+.dashboard_container{
+    display: flex;
+
+    .dashboard_content{
+        width: calc(100% - $aside_width);
+        padding-left: 0.9em;
+    }
+}

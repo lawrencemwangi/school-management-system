@@ -1,0 +1,11 @@
+$aside_width:15%;
+
+.aside_container{
+    height: 100vh;
+    background: $secondary-color;
+    color: $primary-color;
+    width: $aside_width;
+    top: 0;
+    left: 0;
+    position: sticky;
+}
