@@ -14,11 +14,13 @@ class CheckuserMiddleware
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle($request, Closure $next, $user_level)
+    public function handle($request, Closure $next, $user_level):response
     {
-        if (!auth()->check() || auth()->user()->user_level !== $user_level) {
+        if (!Auth::check() || Auth::user()->user_level !== (int) $user_level) {
             abort(403, 'Unauthorized access');
         }
+    
         return $next($request);
     }
+    
 }

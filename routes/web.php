@@ -24,11 +24,11 @@ Route::middleware('user_level:1')->group(function() {
 });
 
 Route::middleware('user_level:2')->group(function() {
-    Route::get('//dashboard' , [DashboardController::class, 'index'])->name('admin_dashboard');
+    Route::get('/teacher/dashboard' , [DashboardController::class, 'index'])->name('teacher_dashboard');
 });
 
 Route::middleware('user_level:3')->group(function() {
-    Route::get('/admin/dashboard' , [DashboardController::class, 'index'])->name('admin_dashboard');
+    Route::get('/accountant/dashboard' , [DashboardController::class, 'index'])->name('accountant_dashboard');
 });
 
 Route::middleware('user_level:4')->group(function() {
