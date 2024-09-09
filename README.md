@@ -6,17 +6,16 @@
 
 1. clone or fork the repository
 
-``` bash
-git clone:https://github.com/lawrencemwangi/lawnet-dev.git
+    ``` bash
+    git@github.com:lawrencemwangi/school-management-system.git
 
-```
-
+    ```
 1. Change the path of the project to the directory with the project and run the following commands
 
-```bash
-npm install
+    ```bash
+    npm install
 
-```
+    ```
 
 1. copy the `.evn.example` into a file named  `.evn`
 
