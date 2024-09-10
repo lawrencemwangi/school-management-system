@@ -14,8 +14,12 @@ class DashboardController extends Controller
     public function index()
     {
         $userLevel = auth()->user()->user_level; 
-        // dd($userLevel);
         return view('backend.dashboard', compact('userLevel'));
+    }
+
+    public function Dashboard ()
+    {
+        return view('backend.finance');
     }
     /**
      * Show the form for creating a new resource.

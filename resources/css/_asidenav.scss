@@ -8,4 +8,83 @@ $aside_width:15%;
     top: 0;
     left: 0;
     position: sticky;
+    padding: 0.3em;
+
+    .aside_logo{
+        padding-bottom: 0.3em;
+
+        a{
+            @include anchor;
+            color: $primary-color;
+            @include flex_center;
+            gap: 0.5em;
+            justify-content: left;
+
+            img{
+                border-radius: 50%;
+            }
+        }
+    }
+
+    .aside_link{
+        // *{border: 1px solid greenyellow}
+        padding: 0 0.3em;
+
+        ul{
+            list-style: none;
+
+            li{
+                padding: 0.1em;
+                @include flex_center;
+                justify-content: left;
+                gap: 0.5em; 
+
+                a{
+                    @include anchor;
+                    color: $primary-color;
+
+                }
+
+                &.active{
+                    background: $primary-color;
+                    color: $secondary-color;
+                    border-radius: 4px;
+                    padding: 0 0.3em;
+
+                    a{
+                        color: $secondary-color;
+                    }
+                }
+            }
+        }
+    }
+
+    .aside_profile{
+        margin-top: 2.8em;
+        @include flex_center;
+        flex-direction: column;
+
+        .img{
+            img{
+                width:45px ;
+                height: 45px;
+                border-radius: 50%;
+                border: 1px solid $primary-color;
+            }
+        }
+        .profile_details{
+            a{
+                @include anchor;
+                color: $primary-color;
+                font-size: 1.1em;
+            }
+        }
+
+        form{
+            button{
+                background-color: $danger-color;
+                padding: 0.3em 2em;
+            }
+        }
+    }
 }

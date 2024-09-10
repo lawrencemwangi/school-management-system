@@ -19,8 +19,9 @@ Route::middleware('auth', 'verified')->group(function () {
 });
 
 
-Route::middleware('user_level:1')->group(function() {
+Route::middleware('user_level:1,0')->group(function() {
     Route::get('/admin/dashboard' , [DashboardController::class, 'index'])->name('admin_dashboard');
+    Route::get('/admin/finance' , [DashboardController::class, 'Dashboard'])->name('finance');
 });
 
 Route::middleware('user_level:2')->group(function() {

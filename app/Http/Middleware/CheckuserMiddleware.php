@@ -21,6 +21,5 @@ class CheckuserMiddleware
         }
     
         return $next($request);
-    }
-    
+    } 
 }

@@ -8,8 +8,9 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
 
         <link rel="icon" type="image" href="{{ asset('/assets/images/logo.jpg') }}">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
         @vite(['resources/css/stlye.scss', 'resources/js/app.js'])
+        
     </head>
     <body>
         <div class="dashboard_container">
