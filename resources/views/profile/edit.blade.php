@@ -86,7 +86,7 @@
 
         
         <div class="profile_delete">
-            <h1>Delete Account</h1>
+            <h3>Delete Account</h3>
 
             <form  action="{{ route('profile.destroy') }}" method="post" id="deleteForm">
                 @csrf
