@@ -8,6 +8,28 @@
 
     <div class="nav_links">
         <ul>
+            <li>
+                @if(Auth::check())
+                @php
+                    $userLevel = Auth::user()->user_level;
+                    $dashboardRoutes = [
+                        0 => 'admin_dashboard',
+                        1 => 'admin_dashboard',
+                        2 => 'teacher_dashboard',
+                        3 => 'accountant_dashboard',
+                        4 => 'student_dashboard',
+                        5 => 'parent_dashboard'
+                    ];
+                @endphp
+            
+                @if(array_key_exists($userLevel, $dashboardRoutes))
+                    <a href="{{ route($dashboardRoutes[$userLevel]) }}">Dashboard</a>
+                @else
+                    <li>Dashboard</li>
+                @endif
+            @endif
+        
+            </li>
             <li><a href="{{ route('about') }}">About</a></li>
             <li><a href="#"></a></li>
             <li><a href="{{  route('contact') }}">Contact</a></li>

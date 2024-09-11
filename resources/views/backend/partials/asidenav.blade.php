@@ -2,65 +2,22 @@
     <div class="aside_logo">
         <a href="{{ route('home') }}" target="_blank">
             <img src="{{ asset('/assets/images/image.jpg') }}" width="35px" height="35px" alt="{{ config('app.name') }}">
-            School Mgt
+            Kiambu High
         </a>
     </div>
 
+    @php
+        $menuItems = (new \App\Http\Controllers\DashboardController)->getMenuLinks();
+    @endphp
+
     <div class="aside_link">
         <ul>
-            <li>
-                <i class="fa-solid fa-gauge"></i>
-                <a href="#">Dashbord</a>
-            </li>
-
-            <li>
-                <i class="fa-solid fa-users"></i>
-                <a href="#">Users</a>
-            </li>
-
-            <li>
-                <i class="fa fa-chalkboard-teacher"></i>
-                <a href="#">classes</a>
-            </li>
-
-            <li>
-                <i class="fa fa-bed"></i>
-                <a href="#">Dorms</a>
-            </li>
-
-            <li>
-                <i class="fa fa-money-bill-wave"></i>
-                <a href="#">Fees</a>
-            </li>
-            
-            <li>
-                <i class="fa fa-user-check"></i>
-                <a href="#">Attendance</a>
-            </li>
-            
-            <li class="{{ Route::is('*') ? 'active' : '' }}">
-                <i class="fas fa-coins"></i>
-                <a href="#">Finance</a>
-            </li>
-            
-            <li>
-                <i class="fa fa-tasks"></i>
-                <a href="#">Assignments</a>
-            </li>
-
-            <li>
-                <i class="fa fa-bell"></i>
-                <a href="#">Notifications</a>
-            </li>
-
-            <li>
-                <i class="fa fa-chart-line"></i>
-                <a href="#">Reports</a>
-            </li>
-            <li>
-                <i class="fa fa-cog"></i>
-                <a href="#">Settings</a>
-            </li>
+            @foreach($menuItems as $item)
+                <li>
+                    <i class="{{ $item['icon'] }}"></i>
+                    <a href="{{ $item['route'] }}">{{ $item['label'] }}</a>
+                </li>
+            @endforeach
         </ul>
     </div>
 

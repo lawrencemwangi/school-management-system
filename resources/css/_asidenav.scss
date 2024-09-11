@@ -27,14 +27,13 @@ $aside_width:15%;
     }
 
     .aside_link{
-        // *{border: 1px solid greenyellow}
         padding: 0 0.3em;
 
         ul{
             list-style: none;
 
             li{
-                padding: 0.1em;
+                padding: 0.2em;
                 @include flex_center;
                 justify-content: left;
                 gap: 0.5em; 
@@ -60,7 +59,9 @@ $aside_width:15%;
     }
 
     .aside_profile{
-        margin-top: 2.8em;
+        position: fixed;
+        bottom: 3%;
+        left:center;
         @include flex_center;
         flex-direction: column;
 
