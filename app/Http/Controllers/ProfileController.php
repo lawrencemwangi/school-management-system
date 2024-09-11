@@ -34,7 +34,10 @@ class ProfileController extends Controller
 
         $request->user()->save();
 
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        return Redirect::route('profile.edit')->with('success', [
+            'message' => 'Profile details update successfully',
+            'duration' => $this->alert_message_duration,
+        ]);
     }
 
     /**
@@ -55,6 +58,6 @@ class ProfileController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return Redirect::to('/');
+        return Redirect::back();
     }
 }

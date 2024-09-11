@@ -1,6 +1,8 @@
 .auth{
     margin:3em  auto 0;
     @include flex-center;
+    flex-direction: column;
+    justify-content: left;
 
     .custom_form{
         width: 50%;

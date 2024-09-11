@@ -12,3 +12,17 @@
         }, duration);
     }
 })();
+
+//Delete button toogle on typing the password 
+document.addEventListener("DOMContentLoaded", function() {
+    const passwordInput = document.getElementById('password');
+    const deleteButton = document.getElementById('deleteButton');
+
+    passwordInput.addEventListener('input', function() {
+        if (passwordInput.value.trim() !== '') {
+            deleteButton.style.display = 'inline';
+        } else {
+            deleteButton.style.display = 'none';
+        }
+    });
+});

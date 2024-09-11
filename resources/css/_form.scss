@@ -24,8 +24,6 @@ form{
 }
 
 .custom_form{
-    padding: 0.3em 0;
-    border: 1px solid $secondary-color;
     padding: 0.5em;
     border-radius: 12px;
 
@@ -117,6 +115,14 @@ form{
                     }
                 }
             }
+        }
+
+        .group{
+            @include grid(2);
+        }
+
+        .groups{
+            @include grid(3);
         }
     }
 
