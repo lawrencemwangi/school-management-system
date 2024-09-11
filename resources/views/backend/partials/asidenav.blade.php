@@ -13,7 +13,7 @@
     <div class="aside_link">
         <ul>
             @foreach($menuItems as $item)
-                <li>
+                <li class="{{ Route::is($item['route'] . '*') ? 'active' : '' }}">
                     <i class="{{ $item['icon'] }}"></i>
                     <a href="{{ $item['route'] }}">{{ $item['label'] }}</a>
                 </li>
@@ -33,7 +33,7 @@
 
         <form action="{{ route('logout') }}" method="post">
             @csrf
-            <button type="submit">Logout</button>
+            <button type="submit"><i class="fa fa-sign-out-alt"></i> Logout</button>
         </form>
     </div>
 </div>

@@ -56,4 +56,18 @@ class User extends Authenticatable implements MustVerifyEmail
             'password' => 'hashed',
         ];
     }
+
+    public function getUserLevelLabelAttribute()
+    {
+        $levels = [
+            0 => 'super admin',
+            1 => 'Admin',
+            2 => 'Teacher',
+            3 => 'Accountant',
+            4 => 'Student',
+            5 => 'Parent',
+        ];
+
+        return $levels[$this->user_level] ?? 'Unkown';
+    }
 }

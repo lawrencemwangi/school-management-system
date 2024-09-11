@@ -25,21 +25,46 @@ class DashboardController extends Controller
     
         if(in_array($userLevel, [0,1])){
             $menuItems = [
-                ['icon' => 'fa-solid fa-gauge', 'route' => '#','label' => 'Dashboard' ],
+                ['icon' => 'fa-solid fa-gauge', 'route' => 'admin_dashboard','label' => 'Dashboard' ],
                 ['icon' => 'fa-solid fa-users', 'route' => '#', 'label' => 'Users' ],
                 ['icon' => 'fa fa-chalkboard-teacher', 'route' => '#','label' => 'Teachers'],
                 ['icon' => 'fa fa-bed', 'route' => '#', 'label' => 'Dorms'],
-                ['icon' => 'fas fa-coins',  'route' => '#', 'label' => 'Finance'],
+                ['icon' => 'fa fa-coins',  'route' => '#', 'label' => 'Finance'],
                 ['icon' => 'fa fa-bell', 'route' => '#','label' => 'Notifications' ],
                 ['icon' => 'fa fa-chart-line', 'route' => '#', 'label' => 'Reports' ],
                 ['icon' => 'fa fa-cog',  'route' => '#', 'label' => 'Settings' ],
             ]; 
     
-        } elseif (in_array($userLevel, [3, 4])) {
+        } elseif (in_array($userLevel, [2])) {
             $menuItems = [
-                ['icon' => 'fa-solid fa-gauge', 'route' => '#', 'label' => 'Dashboard'],
+                ['icon' => 'fa-solid fa-gauge', 'route' => 'teacher_dashboard','label' => 'Dashboard' ],
+                ['icon' => 'fa-solid fa-gauge', 'route' => '#','label' => 'class' ],
                 ['icon' => 'fa fa-tasks', 'route' => '#', 'label' => 'Assignments'],
-                ['icon' => 'fa fa-user-check', 'route' => '#', 'label' => 'Attendance']
+                ['icon' => 'fa fa-user-check', 'route' => '#', 'label' => 'Attendance'],
+            ];
+
+        }elseif(in_array($userLevel, [3])){
+            $menuItems = [
+                ['icon' => 'fa-solid fa-gauge', 'route' => 'accountant_dashboard', 'label' => 'Dashboard'],
+                ['icon' => 'fas fa-coins',  'route' => '#', 'label' => 'Finance'],
+                ['icon' => 'fa fa-chart-line', 'route' => '#', 'label' => 'Reports' ],
+            ];
+
+        }elseif(in_array($userLevel, [4])){
+            $menuItems = [
+                ['icon' => 'fa-solid fa-gauge', 'route' => 'student_dashboard', 'label' => 'Dashboard'],
+                ['icon' => 'fa fa-tasks', 'route' => '#', 'label' => 'Assignments'],
+                ['icon' => 'fa fa-user-check', 'route' => '#', 'label' => 'Attendance'],
+            ];
+
+        }elseif(in_array($userLevel, [5])){
+            $menuItems = [
+                ['icon' => 'fa-solid fa-gauge', 'route' => 'parent_dashboard', 'label' => 'Dashboard'],
+                ['icon' => 'fa fa-user-check', 'route' => '#', 'label' => 'Attendance'],
+                ['icon' => 'fa fa-phone-alt', 'route' => '#', 'label' => 'Contact'],
+                ['icon' => 'fa fa-coins', 'route' => '#', 'label' => 'Fees'],
+                ['icon' => 'fa fa-chart-line', 'route' => '#', 'label' => 'Report'],
+
             ];
         }
     

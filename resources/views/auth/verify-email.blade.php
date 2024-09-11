@@ -1,24 +1,20 @@
 <x-app-layout>
+    <div class="verify_container custo_form auth">
+        <h3>Email verification</h3>
+        <p>Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just 
+            emailed to you? If you didn\'t receive the email, we will gladly send you another.
+        </p>
 
-    <p>Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.</p>
-
-    <div class="custom_form">
-        <form method="POST" action="{{ route('verification.send') }}">
+        <form action="{{ route('verification.send') }}" method="post">
             @csrf
 
-            <div>
-                <x-primary-button>
-                    {{ __('Resend Verification Email') }}
-                </x-primary-button>
-            </div>
+            <button type="submit">Resend Verification Email</button>
         </form>
 
-        <form method="POST" action="{{ route('logout') }}">
+        <form action="{{ route('logout') }}" method="post">
             @csrf
 
-            <button type="submit" class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
-                {{ __('Log Out') }}
-            </button>
+            <button type="submit">Logout</button>
         </form>
     </div>
 </x-app-layout>

@@ -35,8 +35,8 @@ Route::middleware('user_level:4')->group(function() {
     Route::get('/student/dashboard' , [DashboardController::class, 'index'])->name('student_dashboard');
 });
 
-Route::middleware('user_level:1')->group(function() {
-    Route::get('/admin/dashboard' , [DashboardController::class, 'index'])->name('admin_dashboard');
+Route::middleware('user_level:5')->group(function() {
+    Route::get('/parent/dashboard' , [DashboardController::class, 'index'])->name('parent_dashboard');
 });
 
 

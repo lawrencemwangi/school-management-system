@@ -33,7 +33,7 @@ $aside_width:15%;
             list-style: none;
 
             li{
-                padding: 0.2em;
+                padding: 0.3em;
                 @include flex_center;
                 justify-content: left;
                 gap: 0.5em; 
@@ -48,7 +48,7 @@ $aside_width:15%;
                     background: $primary-color;
                     color: $secondary-color;
                     border-radius: 4px;
-                    padding: 0 0.3em;
+                    padding: 0.2em;
 
                     a{
                         color: $secondary-color;
