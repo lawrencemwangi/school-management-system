@@ -23,24 +23,25 @@ class DashboardController extends Controller
         $menuItems = [];
         $userLevel = Auth::user()->user_level;
     
+        //0,1 -admin/superadmin , 2 - teacher, 3 - accountant, 4 - Student & 5 - Parent
         if(in_array($userLevel, [0,1])){
             $menuItems = [
                 ['icon' => 'fa-solid fa-gauge', 'route' => 'admin_dashboard','label' => 'Dashboard' ],
-                ['icon' => 'fa-solid fa-users', 'route' => '#', 'label' => 'Users' ],
-                ['icon' => 'fa fa-chalkboard-teacher', 'route' => '#','label' => 'Teachers'],
-                ['icon' => 'fa fa-bed', 'route' => '#', 'label' => 'Dorms'],
-                ['icon' => 'fa fa-coins',  'route' => '#', 'label' => 'Finance'],
-                ['icon' => 'fa fa-bell', 'route' => '#','label' => 'Notifications' ],
-                ['icon' => 'fa fa-chart-line', 'route' => '#', 'label' => 'Reports' ],
-                ['icon' => 'fa fa-cog',  'route' => '#', 'label' => 'Settings' ],
+                ['icon' => 'fa-solid fa-users', 'route' => 'users.index', 'label' => 'Users' ],
+                ['icon' => 'fa fa-chalkboard-teacher', 'route' => 'users.index','label' => 'Teachers'],
+                ['icon' => 'fa fa-bed', 'route' => 'users.index', 'label' => 'Dorms'],
+                ['icon' => 'fa fa-coins',  'route' => 'users.index', 'label' => 'Finance'],
+                ['icon' => 'fa fa-bell', 'route' => 'users.index','label' => 'Notifications' ],
+                ['icon' => 'fa fa-chart-line', 'route' => 'users.index', 'label' => 'Reports' ],
+                ['icon' => 'fa fa-cog',  'route' => 'settings.index', 'label' => 'Settings' ],
             ]; 
     
         } elseif (in_array($userLevel, [2])) {
             $menuItems = [
                 ['icon' => 'fa-solid fa-gauge', 'route' => 'teacher_dashboard','label' => 'Dashboard' ],
-                ['icon' => 'fa-solid fa-gauge', 'route' => '#','label' => 'class' ],
-                ['icon' => 'fa fa-tasks', 'route' => '#', 'label' => 'Assignments'],
-                ['icon' => 'fa fa-user-check', 'route' => '#', 'label' => 'Attendance'],
+                ['icon' => 'fa-solid fa-gauge', 'route' => 'teacher_dashboard','label' => 'class' ],
+                ['icon' => 'fa fa-tasks', 'route' => 'teacher_dashboard', 'label' => 'Assignments'],
+                ['icon' => 'fa fa-user-check', 'route' => 'teacher_dashboard', 'label' => 'Attendance'],
             ];
 
         }elseif(in_array($userLevel, [3])){
@@ -60,10 +61,10 @@ class DashboardController extends Controller
         }elseif(in_array($userLevel, [5])){
             $menuItems = [
                 ['icon' => 'fa-solid fa-gauge', 'route' => 'parent_dashboard', 'label' => 'Dashboard'],
-                ['icon' => 'fa fa-user-check', 'route' => '#', 'label' => 'Attendance'],
-                ['icon' => 'fa fa-phone-alt', 'route' => '#', 'label' => 'Contact'],
-                ['icon' => 'fa fa-coins', 'route' => '#', 'label' => 'Fees'],
-                ['icon' => 'fa fa-chart-line', 'route' => '#', 'label' => 'Report'],
+                ['icon' => 'fa fa-user-check', 'route' => 'parent_dashboard', 'label' => 'Attendance'],
+                ['icon' => 'fa fa-phone-alt', 'route' => 'parent_dashboard', 'label' => 'Contact'],
+                ['icon' => 'fa fa-coins', 'route' => 'parent_dashboard', 'label' => 'Fees'],
+                ['icon' => 'fa fa-chart-line', 'route' => 'parent_dashboard', 'label' => 'Report'],
 
             ];
         }

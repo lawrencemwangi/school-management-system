@@ -15,9 +15,10 @@
             @foreach($menuItems as $item)
                 <li class="{{ Route::is($item['route'] . '*') ? 'active' : '' }}">
                     <i class="{{ $item['icon'] }}"></i>
-                    <a href="{{ $item['route'] }}">{{ $item['label'] }}</a>
+                    <a href="{{ route($item['route']) }}">{{ $item['label'] }}</a>
                 </li>
             @endforeach
+        
         </ul>
     </div>
 
