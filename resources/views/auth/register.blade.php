@@ -31,13 +31,7 @@
                 </div>
 
                 <div class="input_group">
-                    <label for="dob">Date of Birth</label><span>*</span>
-                    <input type="date" name="dob" id="dob" placeholder="2/7/2002" value="{{ old('dob') }}" required>
-                    <span class="inline_alert">{{ $errors->first('dob') }}</span>
-                </div>
-
-                <div class="input_group">
-                    <label for="phone_number">Phone Number(Main)</label><span>*</span>
+                    <label for="phone_number">Phone Number <strong>(Main)</strong></label><span>*</span>
                     <input type="number" name="phone_number" id="phone_number" placeholder="0712345678" value="{{ old('phone_number') }}" required>
                     <span class="inline_alert">{{ $errors->first('phone_number') }}</span>
                 </div>

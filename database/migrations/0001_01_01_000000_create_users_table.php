@@ -20,7 +20,6 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('phone_number');
             $table->string('other_phone')->nullable();
-            $table->date('dob')->nullable();
             $table->string('image')->nullable();
             $table->string('gender')->nullable();
             $table->string('address')->nullable();
