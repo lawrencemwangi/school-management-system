@@ -54,8 +54,8 @@ class DashboardController extends Controller
         }elseif(in_array($userLevel, [4])){
             $menuItems = [
                 ['icon' => 'fa-solid fa-gauge', 'route' => 'student_dashboard', 'label' => 'Dashboard'],
-                ['icon' => 'fa fa-tasks', 'route' => '#', 'label' => 'Assignments'],
-                ['icon' => 'fa fa-user-check', 'route' => '#', 'label' => 'Attendance'],
+                ['icon' => 'fa fa-tasks', 'route' => 'student_dashboard', 'label' => 'Assignments'],
+                ['icon' => 'fa fa-user-check', 'route' => 'student_dashboard', 'label' => 'Attendance'],
             ];
 
         }elseif(in_array($userLevel, [5])){

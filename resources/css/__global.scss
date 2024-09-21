@@ -13,3 +13,14 @@ body{
 .container{
     padding: 0.9em 3%;
 }
+
+.header{
+    // *{border: 1px solid green};
+    @include grid(3);
+    padding: 0.5em;
+    align-items: center;
+
+    input{
+        padding: 0.5em;
+    }
+}
