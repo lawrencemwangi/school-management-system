@@ -16,7 +16,7 @@
         <div class="dashboard_container">
             @include('backend.partials.asidenav')
 
-            <div class="dashboard_content">
+            <div class="dashboard_content" id="dashboard_content">
                 <main>
                     {{ $slot }}
                 </main>

@@ -26,3 +26,25 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+
+// admin asidebar toggle
+document.getElementById('navbar-toggle-icon').addEventListener('click', function() {
+    let sidebar = document.getElementById('sidebar');
+    let toggleIcon = document.getElementById('navbar-toggle-icon');
+    let profileDetails = document.querySelector('.aside_profile');
+
+    // Toggle the 'collapsed' class on the sidebar and profile
+    sidebar.classList.toggle('collapsed');
+    profileDetails.classList.toggle('collapsed');
+
+    // Change the icon for the toggle button
+    if (sidebar.classList.contains('collapsed')) {
+        toggleIcon.innerHTML = '&gt;'; // Show ">" when sidebar is collapsed
+    } else {
+        toggleIcon.innerHTML = '&lt;'; // Show "<" when sidebar is expanded
+    }
+});
+
+
+
+

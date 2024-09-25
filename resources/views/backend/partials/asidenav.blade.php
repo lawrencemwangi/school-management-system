@@ -1,4 +1,7 @@
-<div class="aside_container">
+<div class="aside_container sidebar" id="sidebar">
+    <div class="toggle">
+        <span id="navbar-toggle-icon">&lt;</span>
+    </div>
     <div class="aside_logo">
         <a href="{{ route('home') }}" target="_blank">
             <img src="{{ asset('/assets/images/image.jpg') }}" width="35px" height="35px" alt="{{ config('app.name') }}">
@@ -10,12 +13,14 @@
         $menuItems = (new \App\Http\Controllers\DashboardController)->getMenuLinks();
     @endphp
 
-    <div class="aside_link">
+    <div class="aside_link " id="navbar">
         <ul>
             @foreach($menuItems as $item)
                 <li class="{{ Route::is($item['route'] . '*') ? 'active' : '' }}">
-                    <i class="{{ $item['icon'] }}"></i>
-                    <a href="{{ route($item['route']) }}">{{ $item['label'] }}</a>
+                    <a href="{{ route($item['route']) }}">
+                        <i class="{{ $item['icon'] }}"></i>
+                        <span class="label">{{ $item['label'] }}</span>
+                    </a>
                 </li>
             @endforeach
         
@@ -24,7 +29,9 @@
 
     <div class="aside_profile">
         <div class="img">
-            <img src="{{ asset('/assets/images/logo.jpg') }}" alt="{{ Auth::user()->first_name }}">
+            <a href="{{ route('profile.edit') }}">
+                <img src="{{ asset('/assets/images/logo.jpg') }}" alt="{{ Auth::user()->first_name }}">
+            </a>
         </div>
         <div class="profile_details">
             <a href="{{ route('profile.edit') }}">

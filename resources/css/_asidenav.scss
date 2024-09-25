@@ -1,4 +1,5 @@
 $aside_width:15%;
+$collapsed_width: 60px;
 
 .aside_container{
     height: 100vh;
@@ -9,6 +10,37 @@ $aside_width:15%;
     left: 0;
     position: sticky;
     padding: 0.3em;
+    transition: width 0.3s ease;
+
+    &.collapsed {
+        width: $collapsed_width;
+
+        
+        .aside_link .label {
+            display: none;  
+        }
+
+        .aside_profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .profile_details {
+                display: none;  
+            }
+
+            form {
+                button {
+                    padding: 0.3em 1em;
+                }
+            }
+
+            img {
+                width: 35px; 
+                height: 35px;
+            }
+        }
+    }
 
     .aside_logo{
         padding-bottom: 0.3em;
@@ -26,6 +58,23 @@ $aside_width:15%;
         }
     }
 
+    .toggle {
+        position: absolute;
+        left: 92%;
+        top: 10px;
+        background-color: #5f5f5f;
+        color: $primary-color;
+        font-size: 1.5em;
+        padding: 5px;
+        cursor: pointer;
+        z-index: 1;
+        transition: left 0.3s ease;
+
+        &.collapsed {
+            left: 60px;
+        } 
+    }
+
     .aside_link{
         padding: 0 0.3em;
 
@@ -41,7 +90,6 @@ $aside_width:15%;
                 a{
                     @include anchor;
                     color: $primary-color;
-
                 }
 
                 &.active{
