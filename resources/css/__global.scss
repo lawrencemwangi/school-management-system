@@ -20,7 +20,45 @@ body{
     padding: 0.5em;
     align-items: center;
 
-    input{
-        padding: 0.5em;
+    .search{
+        input{
+            padding: 0.5em 0.9em;
+            position: relative;
+            border-radius: 8px 0 0 8px;
+        }
+
+        span{
+            position: absolute;
+            background: $secondary-color;
+            padding: 0.45em 0.9em;
+            color: $primary-color;
+            border-radius: 0 12px 12px 0;
+        }
     }
+
+    .btn{
+        @include flex_center;
+
+        button{
+            padding: 0.6em 1.5em;
+            background: $secondary-color;
+            border-radius: 8px;
+            border: none;
+            
+            a{
+                @include anchor;
+                color: $primary-color;
+            }
+        }
+    }
+}
+
+.text_success{
+    color: $success-color;
+    font-weight: 550;
+}
+
+.text_danger{
+    color: $danger-color;
+    font-weight: 550;
 }
