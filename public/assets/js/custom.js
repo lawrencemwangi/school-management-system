@@ -39,9 +39,9 @@ document.getElementById('navbar-toggle-icon').addEventListener('click', function
 
     // Change the icon for the toggle button
     if (sidebar.classList.contains('collapsed')) {
-        toggleIcon.innerHTML = '&gt;'; // Show ">" when sidebar is collapsed
+        toggleIcon.innerHTML = '&gt;'; 
     } else {
-        toggleIcon.innerHTML = '&lt;'; // Show "<" when sidebar is expanded
+        toggleIcon.innerHTML = '&lt;'; 
     }
 });
 

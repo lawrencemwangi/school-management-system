@@ -5,7 +5,7 @@
     <div class="aside_logo">
         <a href="{{ route('home') }}" target="_blank">
             <img src="{{ asset('/assets/images/image.jpg') }}" width="35px" height="35px" alt="{{ config('app.name') }}">
-            Kiambu High
+            <span>Kiambu High</span> 
         </a>
     </div>
 
@@ -41,7 +41,7 @@
 
         <form action="{{ route('logout') }}" method="post">
             @csrf
-            <button type="submit"><i class="fa fa-sign-out-alt"></i> Logout</button>
+            <button type="submit"><i class="fa fa-sign-out-alt"></i><span>Logout</span></button>
         </form>
     </div>
 </div>
