@@ -43,7 +43,7 @@ $collapsed_width: 70px;
 
             form {
                 button {
-                    padding: 0.3em 0.8em; 
+                    padding: 0.3em 0.6em; 
 
                     i {
                         margin-right: 0;  
@@ -151,6 +151,10 @@ $collapsed_width: 70px;
             button{
                 background-color: $danger-color;
                 padding: 0.3em 2em;
+
+                i{
+                    padding: 0 0.3em;
+                }
             }
         }
     }

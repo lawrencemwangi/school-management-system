@@ -1,6 +1,6 @@
 <x-admin-layout>
     <div class="user_container">
-        <x-header title="Users" addLink="{{ route('admin_dashboard') }}" />
+        <x-header title="Users" addLink="{{ route('users.create') }}" />
 
         <div class="user_content">
             <div class="user_details">

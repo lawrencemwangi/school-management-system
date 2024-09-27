@@ -16,7 +16,7 @@
     <div class="aside_link " id="navbar">
         <ul>
             @foreach($menuItems as $item)
-                <li class="{{ Route::is($item['route'] . '*') ? 'active' : '' }}">
+                <li class="{{ Route::is($item['route']. '*') ? 'active' : '' }}">
                     <a href="{{ route($item['route']) }}">
                         <i class="{{ $item['icon'] }}"></i>
                         <span class="label">{{ $item['label'] }}</span>
