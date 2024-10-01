@@ -56,19 +56,6 @@
                     </select>
                     <span class="inline_alert">{{ $errors->first('gender') }}</span>
                 </div>
-    
-    
-                <div class="input_group">
-                    <label for="emp_code">Employee Code</label>
-                    <input type="text" name="emp_code" id="emp_code" value="{{ old('emp_code')}}">
-                    <span class="inline_alert">{{ $errors->first('emp_code') }}</span>
-                </div>
-    
-                <div class="input_group">
-                    <label for="emp_date">Employee Date (Date of Employment)</label>
-                    <input type="date" name="emp_date" id="emp_date" value="{{ old('emp_date')}}">
-                    <span class="inline_alert">{{ $errors->first('emp_date') }}</span>
-                </div>
             </div>
     
             <div class="group">
@@ -79,7 +66,7 @@
                             <input class="option_radio" type="radio" name="status" id="active" value="1" {{ old('status') == '1' ? 'checked' : '' }}>
                             <span>active</span>
                         </label>
-    
+
                         <label>
                             <input class="option_radio" type="radio" name="status" id="inactive" value="0" {{ old('status') == '0' ? 'checked' : '' }}>
                             <span>inacitve</span>
@@ -87,18 +74,34 @@
                     </div>
                     <span class="inline_alert">{{ $errors->first('status') }}</span>
                 </div>
-    
+
                 <div class="input_group">
                     <label for="user_level">User Level:-</label>
                     <div class="custom_radio_buttons">
+                        {{-- 1: admin, 2:teacher ,3: accountant, 4:student ,5: parent --}}
                         <label>
                             <input class="option_radio" type="radio" name="user_level" id="admin" value="1" {{ old('user_level') == '1' ? 'checked' : '' }}>
                             <span>Admin</span>
                         </label>
-    
+
                         <label>
-                            <input class="option_radio" type="radio" name="user_level" id="user" value="2" {{ old('user_level') == '2' ? 'checked' : '' }}>
-                            <span>User</span>
+                            <input class="option_radio" type="radio" name="user_level" id="teacher" value="2" {{ old('user_level') == '2' ? 'checked' : '' }}>
+                            <span>teacher</span>
+                        </label>
+
+                        <label>
+                            <input class="option_radio" type="radio" name="user_level" id="accountant" value="3" {{ old('user_level') == '3' ? 'checked' : '' }}>
+                            <span>Accountant</span>
+                        </label>
+
+                        <label>
+                            <input class="option_radio" type="radio" name="user_level" id="student" value="4" {{ old('user_level') == '4' ? 'checked' : '' }}>
+                            <span>Student</span>
+                        </label>
+
+                        <label>
+                            <input class="option_radio" type="radio" name="user_level" id="parent" value="5" {{ old('user_level') == '5' ? 'checked' : '' }}>
+                            <span>Parent</span>
                         </label>
                     </div>
                     <span class="inline_alert">{{ $errors->first('user_level') }}</span>

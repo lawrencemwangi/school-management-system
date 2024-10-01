@@ -5,6 +5,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -25,6 +27,8 @@ Route::middleware('user_level:1,0')->group(function() {
     Route::get('/admin/dashboard' , [DashboardController::class, 'index'])->name('admin_dashboard');
     Route::resource('admin/settings', SettingsController::class);
     Route::resource('admin/users', UserController::class);
+    Route::resource('admin/teachers', TeacherController::class);
+    Route::resource('admin/students', StudentController::class);
 });
 
 

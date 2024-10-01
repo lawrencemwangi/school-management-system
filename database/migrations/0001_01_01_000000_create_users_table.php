@@ -28,8 +28,6 @@ return new class extends Migration
             $table->unsignedtinyinteger('user_level')->default(4);
             //1:active , 2: inactive
             $table->unsignedtinyinteger('status')->default(1);
-            $table->string('emp_code')->nullable();
-            $table->string('emp_date')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

@@ -38,8 +38,6 @@ class UserController extends Controller
             'username' => 'required|string|max:255|unique:users',
             'phone_number' => 'required|string|max:15',
             'gender' => 'required|string|max:10',
-            'emp_code' => 'required|string|max:10',
-            'emp_date' => 'required|date',
             'status' => 'required|string',
             'user_level' => 'required|string',
         ]);
@@ -54,8 +52,6 @@ class UserController extends Controller
         $user->username = $validated['username'];
         $user->phone_number = $validated['phone_number'];
         $user->gender = $validated['gender'];
-        $user->emp_code = $validated['emp_code'];
-        $user->emp_date = $validated['emp_date'];
         $user->status = $validated['status'];
         $user->user_level = $validated['user_level'];
         $user->password = Hash::make($password);
@@ -91,7 +87,7 @@ class UserController extends Controller
     {
         $validated = $request->validate([
             'status' => 'required|in:0,1',
-            'user_level' => 'required|in:0,1,2',
+            'user_level' => 'required|in:0,1,2,3,4,5',
         ]);
 
         $user->first_name = $request->input('first_name');
@@ -101,8 +97,6 @@ class UserController extends Controller
         $user->username = $request->input('username');
         $user->phone_number = $request->input('phone_number');
         $user->gender = $request->input('gender');
-        $user->emp_code = $request->input('emp_code');
-        $user->emp_date = $request->input('emp_date');
         $user->status = $validated['status'];
         $user->user_level = $validated['user_level'];
 

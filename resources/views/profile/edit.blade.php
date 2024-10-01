@@ -44,9 +44,9 @@
                     </div>
 
                     <div class="input_group">
-                        <label for="dob">Date of Birth</label>
-                        <input type="date" name="dob" id="dob" value="{{ old('dob', $user->dob) }}">
-                        <span class="inline_alert">{{  $errors->first('dob') }}</span>
+                        <label for="other_phone">Phone number(Other)</label>
+                        <input type="number" name="other_phone" id="other_phone" value="{{ old('other_phone', $user->other_phone) }}">
+                        <span class="inline_alert">{{  $errors->first('other_phone') }}</span>
                     </div>
                 </div>
 

@@ -28,7 +28,8 @@ class DashboardController extends Controller
             $menuItems = [
                 ['icon' => 'fa-solid fa-gauge', 'route' => 'admin_dashboard','label' => 'Dashboard' ],
                 ['icon' => 'fa-solid fa-users', 'route' => 'users.index', 'label' => 'Users' ],
-                ['icon' => 'fa fa-chalkboard-teacher', 'route' => 'users.index','label' => 'Teachers'],
+                ['icon' => 'fa fa-chalkboard-teacher', 'route' => 'teachers.index','label' => 'Teachers'],
+                ['icon' => 'fa fa-user-graduate', 'route' => 'students.index', 'label' => 'Students' ],
                 ['icon' => 'fa fa-bed', 'route' => 'users.index', 'label' => 'Dorms'],
                 ['icon' => 'fa fa-coins',  'route' => 'users.index', 'label' => 'Finance'],
                 ['icon' => 'fa fa-bell', 'route' => 'users.index','label' => 'Notifications' ],
