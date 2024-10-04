@@ -34,11 +34,22 @@ class TeacherController extends Controller
     {
         $validated = $request->validate([
             'emp_code' => 'required|string|max:10',
+            'user_id' => 'required|exists:users,id', 
             'emp_date' => 'required|date',
+            'status' => 'required|in:0,1',
+            'user_level' => 'required|in:0,1,2,3,4,5',
         ]);
 
+        $user = User::find($validated['user_id']);
+
+        if($user){
+            $user->user_level = $validated['user_level'];
+            $user->status = $validated['status'];
+            $user->save();
+        }
+
         $teacher = new Teacher;
-        $teacher->user_id = $request->input('user_id');
+        $teacher->user_id = $user->id;
         $teacher->emp_code = $validated['emp_code'];
         $teacher->emp_date = $validated['emp_date'];
 
@@ -48,7 +59,6 @@ class TeacherController extends Controller
             'message' => 'Teacher added successfully',
             'duration' =>$this->alert_message_duration,
         ]);
-
     }
 
     /**

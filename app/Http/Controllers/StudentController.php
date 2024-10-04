@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Student;
+use App\Models\User;
+use App\Models\Parents;
+use App\Models\Classes;
+use App\Models\Dorm;
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
@@ -20,7 +24,12 @@ class StudentController extends Controller
      */
     public function create()
     {
-        //
+        $users = User::all();
+        $parents = Parents::all();
+        $classes = Classes::all();
+        $dorms = Dorm::all();
+        return view('backend.admin.students.add_student', 
+        compact('users','parents','classes','dorms'));
     }
 
     /**

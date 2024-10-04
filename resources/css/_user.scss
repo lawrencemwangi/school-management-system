@@ -23,10 +23,15 @@
             color: $secondary-color;
             border-bottom: 1px solid $secondary-color;
 
-            span{
+            .action{
+                @include grid(2);
+
+                .fa-trash{
+                    color:$danger-color;
+                }
+                
                 a{
                     @include anchor;
-                    @include flex_center;
                     text-align: center;
                     color:$success-color;
                     font-weight: bold;

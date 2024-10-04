@@ -7,6 +7,9 @@ use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\ParentsController;
+use App\Http\Controllers\ClassesController;
+use App\Http\Controllers\DormController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -29,7 +32,11 @@ Route::middleware('user_level:1,0')->group(function() {
     Route::resource('admin/users', UserController::class);
     Route::resource('admin/teachers', TeacherController::class);
     Route::resource('admin/students', StudentController::class);
+    Route::resource('admin/parents', ParentsController::class);
+    Route::resource('admin/classes', ClassesController::class);
+    Route::resource('admin/dorms', DormController::class);
 });
+
 
 
 Route::middleware('user_level:2')->group(function() {
