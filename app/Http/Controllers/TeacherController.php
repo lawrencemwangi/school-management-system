@@ -13,7 +13,8 @@ class TeacherController extends Controller
      */
     public function index()
     {
-        return view('backend.admin.teachers.list_teachers');
+        $teachers = Teacher::all();
+        return view('backend.admin.teachers.list_teachers',compact('teachers'));
     }
 
     /**
@@ -23,8 +24,7 @@ class TeacherController extends Controller
     {
         $users = User::all();
         return  view('backend.admin.teachers.add_teacher', compact('users'));
-        // 'emp_code' => 'required|string|max:10',
-        // 'emp_date' => 'required|date',
+       
     }
 
     /**
@@ -32,7 +32,23 @@ class TeacherController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'emp_code' => 'required|string|max:10',
+            'emp_date' => 'required|date',
+        ]);
+
+        $teacher = new Teacher;
+        $teacher->user_id = $request->input('user_id');
+        $teacher->emp_code = $validated['emp_code'];
+        $teacher->emp_date = $validated['emp_date'];
+
+        $teacher->save();
+
+        return redirect()->route('teachers.index')->with('success', [
+            'message' => 'Teacher added successfully',
+            'duration' =>$this->alert_message_duration,
+        ]);
+
     }
 
     /**

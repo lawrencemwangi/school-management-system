@@ -1,5 +1,5 @@
 <x-admin-layout>
-    <x-header title="Teahcers" addLink="{{ route('teachers.create') }}" />
+    <x-header title="Teachers" addLink="{{ route('teachers.create') }}" />
     <div class="teacher_container user_container">
         <div class="user_content">
             <div class="user_details">
@@ -13,27 +13,26 @@
                 <span class="user-col">Action</span>
             </div>
              
-            {{-- @if (empty($users))
+            @if (empty($teachers))
                 <p>No User Found at the moment</p> 
-            @else --}}
-                {{-- @foreach ($users as $user) --}}
+            @else
+                @foreach ($teachers as $teacher)
                     <div class="user_infor">
-                        <span class="user-col">hello</span>
-                        <span class="user-col email">Hello</span>
-                        <span class="user-col">Hello</span>
-                        <span class="user-col">Hello</span>
-                        <span class="user-col">0799507464</span>
-                        <span class="user-col">Hello</span>
-                        <span class="user-col">Hello</span>
+                        <span class="user-col"> {{ $teacher->user->first_name }} {{ $teacher->user->last_name }}</span>
+                        <span class="user-col email">{{ $teacher->user->email }}</span>
+                        <span class="user-col">{{  $teacher->user->username }}</span>
+                        <span class="user-col">{{ $teacher->user->phone_number }}</span>
+                        <span class="user-col">{{ $teacher->user->gender }}</span>
+                        <span class="user-col">{{ $teacher->emp_code}}</span>
+                        <span class="user-col">{{ $teacher->emp_date}}</span>
                         <span>
                             <a href="#">
                                 <i class="fas fa-pencil-alt"></i>
                             </a>
                         </span>
                     </div>
-                {{-- @endforeach --}}
-            {{-- @endif --}}
-            
+                @endforeach
+            @endif     
         </div>
     </div>
 </x-admin-layout>

@@ -58,19 +58,6 @@
                     </select>
                     <span class="inline_alert">{{ $errors->first('gender') }}</span>
                 </div>
-
-
-                <div class="input_group">
-                    <label for="emp_code">Employee Code</label>
-                    <input type="text" name="emp_code" id="emp_code" value="{{ old('emp_code', $user->emp_code )}}">
-                    <span class="inline_alert">{{ $errors->first('emp_code') }}</span>
-                </div>
-
-                <div class="input_group">
-                    <label for="emp_date">Employee Date (Date of Employment)</label>
-                    <input type="date" name="emp_date" id="emp_date" value="{{ old('emp_date', $user->emp_date )}}">
-                    <span class="inline_alert">{{ $errors->first('emp_date') }}</span>
-                </div>
             </div>
 
             <div class="group">
@@ -79,12 +66,12 @@
                     <div class="custom_radio_buttons">
                         <label>
                             <input class="option_radio" type="radio" name="status" id="active" value="1" {{ old('status', $user->status) == '1' ? 'checked' : '' }}>
-                            <span>active</span>
+                            <span>Active</span>
                         </label>
 
                         <label>
                             <input class="option_radio" type="radio" name="status" id="inactive" value="0" {{ old('status', $user->status) == '0' ? 'checked' : '' }}>
-                            <span>inacitve</span>
+                            <span>Inacitve</span>
                         </label>
                     </div>
                     <span class="inline_alert">{{ $errors->first('status') }}</span>
@@ -101,7 +88,7 @@
 
                         <label>
                             <input class="option_radio" type="radio" name="user_level" id="teacher" value="2" {{ old('user_level', $user->user_level) == '2' ? 'checked' : '' }}>
-                            <span>teacher</span>
+                            <span>Teacher</span>
                         </label>
 
                         <label>
@@ -121,6 +108,10 @@
                     </div>
                     <span class="inline_alert">{{ $errors->first('user_level') }}</span>
                 </div>
+                <details>
+                    <summary>details</summary>
+                    Hello Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem magni voluptatem tenetur recusandae ea saepe debitis placeat sed architecto repellendus.
+                </details>
             </div>
 
             <button type="submit">Update</button>

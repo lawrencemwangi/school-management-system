@@ -2,7 +2,7 @@
     <h1>Add Teacher</h1>
 
     <div class="custom_form">
-        <form action="#" method="post">
+        <form action="{{ route('teachers.store') }}" method="post">
             @csrf
     
             <div class="groups">
@@ -35,12 +35,12 @@
                     <div class="custom_radio_buttons">
                         <label>
                             <input class="option_radio" type="radio" name="status" id="active" value="1" {{ old('status', $user->status) == '1' ? 'checked' : '' }}>
-                            <span>active</span>
+                            <span>Active</span>
                         </label>
 
                         <label>
                             <input class="option_radio" type="radio" name="status" id="inactive" value="0" {{ old('status', $user->status) == '0' ? 'checked' : '' }}>
-                            <span>inacitve</span>
+                            <span>Inacitve</span>
                         </label>
                     </div>
                     <span class="inline_alert">{{ $errors->first('status') }}</span>
@@ -57,7 +57,7 @@
 
                         <label>
                             <input class="option_radio" type="radio" name="user_level" id="teacher" value="2" {{ old('user_level', $user->user_level) == '2' ? 'checked' : '' }}>
-                            <span>teacher</span>
+                            <span>Teacher</span>
                         </label>
 
                         <label>
@@ -79,7 +79,7 @@
                 </div>
             </div>
 
-            <button type="submit">Add</button>
+            <button type="submit">Add New</button>
         </form>
     </div>
 </x-admin-layout>

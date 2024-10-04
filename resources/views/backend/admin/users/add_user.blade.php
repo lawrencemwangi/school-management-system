@@ -108,7 +108,7 @@
                 </div>
             </div>
     
-            <button type="submit">Update</button>
+            <button type="submit">Add New</button>
         </form>
     </div>
 </x-admin-layout>

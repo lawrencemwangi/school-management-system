@@ -1,3 +1,3 @@
 <x-admin-layout>
-    <h1>Setting Information</h1>
+    <h1>Settings</h1>
 </x-admin-layout>
