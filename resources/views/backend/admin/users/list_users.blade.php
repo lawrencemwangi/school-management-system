@@ -32,7 +32,7 @@
                         <span class="{{ $user->status == 1 ? 'text_success' : 'text_danger' }} user-col">
                             {{ $user->status == 1 ? 'Active' : 'Inactive' }}
                         </span>
-                        <span>
+                        <span class="action">
                             <a href="{{ route('users.edit',['user' => $user]) }}">
                                 <i class="fas fa-pencil-alt"></i>
                             </a>

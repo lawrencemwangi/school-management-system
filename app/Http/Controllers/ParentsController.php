@@ -22,7 +22,7 @@ class ParentsController extends Controller
     public function create()
     {
         $users = User::all();
-        return view('backend.admin.parents.add_parent',compact('users', 'parents'));
+        return view('backend.admin.parents.add_parent',compact('users'));
  
     }
 
