@@ -67,4 +67,11 @@ class User extends Authenticatable implements MustVerifyEmail
 
         return $levels[$this->user_level] ?? 'Unkown';
     }
+
+
+    public function parent()
+    {
+        return $this->belongsTo(Parent::class);
+    }
+
 }

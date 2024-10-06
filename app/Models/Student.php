@@ -26,4 +26,19 @@ class Student extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function parent()
+    {
+        return $this->belongsTo(Parents::class);
+    }
+
+    public function dorm()
+    {
+        return $this->belongsTo(Dorm::class);
+    }
+
+    public function class()
+    {
+        return $this->belongsTo(Classes::class);
+    }
 }

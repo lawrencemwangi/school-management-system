@@ -16,14 +16,13 @@
     <div class="aside_link " id="navbar">
         <ul>
             @foreach($menuItems as $item)
-                <li class="{{ Route::is($item['route']. '*') ? 'active' : '' }}">
+                <li class="{{ Str::startsWith(Route::currentRouteName(), explode('.', $item['route'])[0]) ? 'active' : '' }}">
                     <a href="{{ route($item['route']) }}">
                         <i class="{{ $item['icon'] }}"></i>
                         <span class="label">{{ $item['label'] }}</span>
                     </a>
                 </li>
             @endforeach
-        
         </ul>
     </div>
 

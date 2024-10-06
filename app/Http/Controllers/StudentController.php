@@ -16,7 +16,8 @@ class StudentController extends Controller
      */
     public function index()
     {
-        return view('backend.admin.students.list_students');
+        $students = Student::all();
+        return view('backend.admin.students.list_students', compact('students'));
     }
 
     /**
@@ -67,7 +68,6 @@ class StudentController extends Controller
         $student->class_id = $validated['class_id'];
         $student->graduation_date = $validated['graduation_date'];
         $student->graduation_status = $validated['graduation_status'];
-        // dd($student);
         $student->save();
 
         return redirect()->route('students.index')->with('success', [
@@ -89,7 +89,12 @@ class StudentController extends Controller
      */
     public function edit(Student $student)
     {
-        //
+        $users = User::all();
+        $parents = Parents::all();
+        $classes = Classes::all();
+        $dorms = Dorm::all();
+        return view('backend.admin.students.update_student',
+         compact('student','users','parents','classes','dorms'));
     }
 
     /**
