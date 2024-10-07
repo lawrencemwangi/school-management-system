@@ -34,12 +34,12 @@
                     <label for="status">Status:-</label>
                     <div class="custom_radio_buttons">
                         <label>
-                            <input class="option_radio" type="radio" name="status" id="active" value="1" {{ old('status', $user->status) == '1' ? 'checked' : '' }}>
+                            <input class="option_radio" type="radio" name="status" id="active" value="1" {{ old('status') == '1' ? 'checked' : '' }}>
                             <span>Active</span>
                         </label>
 
                         <label>
-                            <input class="option_radio" type="radio" name="status" id="inactive" value="0" {{ old('status', $user->status) == '0' ? 'checked' : '' }}>
+                            <input class="option_radio" type="radio" name="status" id="inactive" value="0" {{ old('status') == '0' ? 'checked' : '' }}>
                             <span>Inacitve</span>
                         </label>
                     </div>
@@ -51,27 +51,27 @@
                     <div class="custom_radio_buttons">
                         {{-- 1: admin, 2:teacher ,3: accountant, 4:student ,5: parent --}}
                         <label>
-                            <input class="option_radio" type="radio" name="user_level" id="admin" value="1" {{ old('user_level', $user->user_level) == '1' ? 'checked' : '' }}>
+                            <input class="option_radio" type="radio" name="user_level" id="admin" value="1" {{ old('user_level') == '1' ? 'checked' : '' }}>
                             <span>Admin</span>
                         </label>
 
                         <label>
-                            <input class="option_radio" type="radio" name="user_level" id="teacher" value="2" {{ old('user_level', $user->user_level) == '2' ? 'checked' : '' }}>
+                            <input class="option_radio" type="radio" name="user_level" id="teacher" value="2" {{ old('user_level') == '2' ? 'checked' : '' }}>
                             <span>Teacher</span>
                         </label>
 
                         <label>
-                            <input class="option_radio" type="radio" name="user_level" id="accountant" value="3" {{ old('user_level', $user->user_level) == '3' ? 'checked' : '' }}>
+                            <input class="option_radio" type="radio" name="user_level" id="accountant" value="3" {{ old('user_level') == '3' ? 'checked' : '' }}>
                             <span>Accountant</span>
                         </label>
 
                         <label>
-                            <input class="option_radio" type="radio" name="user_level" id="student" value="4" {{ old('user_level', $user->user_level) == '4' ? 'checked' : '' }}>
+                            <input class="option_radio" type="radio" name="user_level" id="student" value="4" {{ old('user_level') == '4' ? 'checked' : '' }}>
                             <span>Student</span>
                         </label>
 
                         <label>
-                            <input class="option_radio" type="radio" name="user_level" id="parent" value="5" {{ old('user_level', $user->user_level) == '5' ? 'checked' : '' }}>
+                            <input class="option_radio" type="radio" name="user_level" id="parent" value="5" {{ old('user_level') == '5' ? 'checked' : '' }}>
                             <span>Parent</span>
                         </label>
                     </div>

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('dorms', function (Blueprint $table) {
             $table->id();
             $table->string('dorm_name')->unique();
-            $table->bigInteger('dorm_capacity');
+            $table->string('dorm_capacity');
             $table->timestamps();
         });
     }

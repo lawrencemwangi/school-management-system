@@ -31,10 +31,12 @@ class ClassesController extends Controller
     {
         $validated = $request->validate([
             'class_name' => 'required|string|max:255',
+            'class_capacity' => 'required|string',
         ]);
 
         $classes = new Classes;
         $classes->class_name = $validated['class_name'];
+        $classes->class_capacity = $validated['class_capacity'];
         
         $classes->save();
 

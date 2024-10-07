@@ -25,10 +25,16 @@
                         <span class="user-col">{{ $teacher->user->gender }}</span>
                         <span class="user-col">{{ $teacher->emp_code}}</span>
                         <span class="user-col">{{ $teacher->emp_date}}</span>
-                        <span>
+                        <span class="action">
                             <a href="#">
                                 <i class="fas fa-pencil-alt"></i>
                             </a>
+
+                            <form action="#" method="post">
+                                <a href="#">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                            </form>
                         </span>
                     </div>
                 @endforeach

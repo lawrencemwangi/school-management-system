@@ -2,7 +2,7 @@
     <h1>Update Students</h1>
 
     <div class="custom_form">
-        <form action="#" method="post">
+        <form action="{{ route('students.update', ['student' => $student]) }}" method="post">
             @csrf
             @method("PATCH")
 

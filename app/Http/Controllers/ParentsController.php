@@ -13,7 +13,8 @@ class ParentsController extends Controller
      */
     public function index()
     {
-        return view('backend.admin.parents.list_parent');
+        $parents = Parents::all();
+        return view('backend.admin.parents.list_parent', compact('parents'));
     }
 
     /**

@@ -12,7 +12,8 @@ class DormController extends Controller
      */
     public function index()
     {
-        return view('backend.admin.dorms.list_dorms');
+        $dorms = Dorm::all();
+        return view('backend.admin.dorms.list_dorms',compact('dorms'));
     }
 
     /**
@@ -30,7 +31,7 @@ class DormController extends Controller
     {
         $validated = $request->validate([
             'dorm_name' => 'required|string|max:50',
-            'dorm_capacity' => 'required|numeric',
+            'dorm_capacity' => 'required|string',
         ]);
 
         $dorms = new Dorm;

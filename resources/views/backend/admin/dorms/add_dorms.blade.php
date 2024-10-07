@@ -14,7 +14,7 @@
 
                 <div class="input_group">
                     <label for="dorm_capacity">Dorm Capacity</label>
-                    <input type="number" name="dorm_capacity" id="dorm_capacity" value="{{ old('dorm_capacity') }}"  placeholder="20 students">
+                    <input type="text" name="dorm_capacity" id="dorm_capacity" value="{{ old('dorm_capacity') }}"  placeholder="20 students">
                     <span class="inline_alert">{{ $errors->first('dorm_capacity') }}</span>
                 </div>
             </div>

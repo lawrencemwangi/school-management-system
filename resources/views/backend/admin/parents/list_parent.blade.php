@@ -6,30 +6,35 @@
             <div class="user_details">
                 <span  class="user-col">Names</span>
                 <span class="user-col email">Email </span>
-                <span class="user-col">Username</span>
                 <span class="user-col">Phone No.</span>
                 <span class="user-col">Gender</span>
                 <span class="user-col">Action</span>
             </div>
-    {{--          
-            @if (empty($teachers))
+             
+            @if (empty($parents))
                 <p>No User Found at the moment</p> 
-            @else --}}
-                {{-- @foreach ($teachers as $teacher) --}}
+            @else
+                @foreach ($parents as $parent)
                     <div class="user_infor">
-                        <span class="user-col"> gcycy</span>
-                        <span class="user-col email">hhvh</span>
-                        <span class="user-col">jj</span>
-                        <span class="user-col">bubu</span>
-                        <span class="user-col">vvv</span>
-                        <span>
+                        <span class="user-col">{{ $parent->user->first_name }} {{ $parent->user->last_name }}</span>
+                        <span class="user-col email">{{ $parent->user->email }}</span>
+                        <span class="user-col">{{ $parent->user->phone_number }}</span>
+                        <span class="user-col">{{ $parent->user->gender }}</span>
+                        <span class="action">
                             <a href="#">
                                 <i class="fas fa-pencil-alt"></i>
                             </a>
+
+                            <form action="#" method="post">
+                                @csrf
+                                <a href="#">
+                                    <i class="fas fa-trash"></i>  
+                                </a>
+                            </form>
                         </span>
                     </div>
-               {{-- @endforeach
-            @endif       --}}
+                @endforeach
+            @endif      
         </div>
     </div>
 </x-admin-layout>
