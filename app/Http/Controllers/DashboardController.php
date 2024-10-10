@@ -41,10 +41,15 @@ class DashboardController extends Controller
     
         } elseif (in_array($userLevel, [2])) {
             $menuItems = [
-                ['icon' => 'fa-solid fa-gauge', 'route' => 'teacher_dashboard','label' => 'Dashboard' ],
-                ['icon' => 'fa-solid fa-gauge', 'route' => 'teacher_dashboard','label' => 'class' ],
-                ['icon' => 'fa fa-tasks', 'route' => 'teacher_dashboard', 'label' => 'Assignments'],
+                ['icon' => 'fa fa-book-open', 'route' => 'teacher_dashboard','label' => 'Dashboard' ],
+                ['icon' => 'fa fa-table', 'route' => 'teacher_dashboard','label' => 'Timetable' ],
+                ['icon' => 'fa fa-user-graduate', 'route' => 'teacher_dashboard', 'label' => 'Students' ],
                 ['icon' => 'fa fa-user-check', 'route' => 'teacher_dashboard', 'label' => 'Attendance'],
+                ['icon' => 'fa  fa-book', 'route' => 'teacher_dashboard','label' => 'Books' ],
+                ['icon' => 'fa fa-tasks', 'route' => 'teacher_dashboard', 'label' => 'Assignments'],
+                ['icon' => 'fa fa-trophy', 'route' => 'discipline.index','label' => 'Discipline' ],
+                ['icon' => 'fa fa-chart-bar', 'route' => 'teacher_dashboard','label' => 'Reports' ],
+                ['icon' => 'fa fa-calendar-minus', 'route' => 'teacher_dashboard','label' => 'Leaveout' ],               
             ];
 
         }elseif(in_array($userLevel, [3])){
