@@ -45,6 +45,9 @@ Route::middleware('user_level:2')->group(function() {
     Route::get('/teacher/dashboard' , [DashboardController::class, 'index'])->name('teacher_dashboard');
     Route::resource('/teacher/discipline', DisciplineController::class);
     Route::resource('/teacher/attendance', AttendanceController::class);
+    Route::post('/attendance/fetch-students', [AttendanceController::class, 'fetchStudents'])
+    ->name('attendance.fetch-students');
+
 });
 
 
