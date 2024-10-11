@@ -43,7 +43,7 @@ class DashboardController extends Controller
             $menuItems = [
                 ['icon' => 'fa fa-book-open', 'route' => 'teacher_dashboard','label' => 'Dashboard' ],
                 ['icon' => 'fa fa-table', 'route' => 'teacher_dashboard','label' => 'Timetable' ],
-                ['icon' => 'fa fa-user-graduate', 'route' => 'teacher_dashboard', 'label' => 'Students' ],
+                ['icon' => 'fa fa-user-graduate', 'route' => 'student.show', 'label' => 'Students' ],
                 ['icon' => 'fa fa-user-check', 'route' => 'attendance.index', 'label' => 'Attendance'],
                 ['icon' => 'fa  fa-book', 'route' => 'teacher_dashboard','label' => 'Books' ],
                 ['icon' => 'fa fa-tasks', 'route' => 'teacher_dashboard', 'label' => 'Assignments'],

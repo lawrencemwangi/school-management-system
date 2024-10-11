@@ -1,0 +1,41 @@
+.student_container{
+  padding: 0.9em 0;
+
+    .student_data{
+        @include grid(2);
+        font-size: 1.2em;
+
+        .student_infor{
+            p{
+                @include flex_center;
+                justify-content: left;
+                gap: 0.5em;
+                padding: 0.3em 0;
+
+                span{
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+
+    .btn{
+        padding: 0.3em 0.9em;
+        @include flex_center;
+        justify-content: right;
+
+
+        button{
+            padding: 0.3em 1.5em;
+            border: none;
+            border-radius: 8px;
+            background-color: $secondary-color;
+
+            a{
+                @include anchor;
+                color: $primary-color;
+                font-weight: 550;
+            }
+        }
+    }
+}

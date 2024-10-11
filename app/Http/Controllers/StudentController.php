@@ -81,7 +81,8 @@ class StudentController extends Controller
      */
     public function show(Student $student)
     {
-        //
+        $students = Student::all();
+        return view('backend.teacher.students.show_students', compact('students'));
     }
 
     /**
@@ -148,5 +149,11 @@ class StudentController extends Controller
     public function destroy(Student $student)
     {
         //
+    }
+
+    public function show_Student($student)
+    {
+        $students = Student::with('parent.user')->findOrFail($student);
+        return view('backend.teacher.students.view_student',compact('students'));
     }
 }

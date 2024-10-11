@@ -33,7 +33,7 @@ Route::middleware('user_level:1,0')->group(function() {
     Route::resource('admin/settings', SettingsController::class);
     Route::resource('admin/users', UserController::class);
     Route::resource('admin/teachers', TeacherController::class);
-    Route::resource('admin/students', StudentController::class);
+    Route::resource('admin/students', StudentController::class)->except('show');
     Route::resource('admin/parents', ParentsController::class);
     Route::resource('admin/classes', ClassesController::class);
     Route::resource('admin/dorms', DormController::class);
@@ -47,6 +47,8 @@ Route::middleware('user_level:2')->group(function() {
     Route::resource('/teacher/attendance', AttendanceController::class);
     Route::post('/attendance/fetch-students', [AttendanceController::class, 'fetchStudents'])
     ->name('attendance.fetch-students');
+    Route::get('/teacher/student', [StudentController::class, 'show'])->name('student.show');
+    Route::get('/teacher/student/{student}', [StudentController::class, 'show_Student'])->name('view_student');
 
 });
 
