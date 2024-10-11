@@ -88,7 +88,11 @@ class AttendanceController extends Controller
      */
     public function edit(Attendance $attendance)
     {
-        //
+        $classes = Classes::all();
+         
+        //Eager load the relationships
+        $attendance->load('records.student.user');
+        return view('backend.teacher.attendance.update_attendance', compact('classes', 'attendance'));
     }
 
     /**
@@ -96,7 +100,34 @@ class AttendanceController extends Controller
      */
     public function update(Request $request, Attendance $attendance)
     {
-        //
+        $validated = $request->validate([
+            'class_id' => 'required',
+            'date' => 'required|date',
+            'attendance' => 'required|array',
+        ]);
+
+        // $attendance = Attendance::findorFail($attendance);
+        $attendance->class_id =$validated['class_id'];
+        $attendance->date = $validated['date'];
+        $attendance->total_students = count($validated['attendance']);
+        $attendance->total_present = count(array_filter($validated['attendance'], fn($data) => strtolower($data['type']) === 'present'));
+        $attendance->total_absent = count(array_filter($validated['attendance'], fn($data) => strtolower($data['type']) === 'absent'));
+        // $attendance->total_late = count(array_filter($validated['attendance'], fn($data) => strtolower($data['type']) === 'late'));
+
+        $attendance->save();
+
+        foreach($validated['attendance'] as $student_id =>$data)
+        {
+            AttendanceRecord::updateOrCreate(
+                ['attendance_id' => $attendance->id, 'student_id' => $student_id],
+                ['attendance_type' => $data['type']]
+            );
+        }
+
+        return redirect()->route('attendance.index')->with('success', [
+            'message' => 'Attendance updated successfully',
+            'duration' => $this->alert_message_duration,
+        ]);
     }
 
     /**

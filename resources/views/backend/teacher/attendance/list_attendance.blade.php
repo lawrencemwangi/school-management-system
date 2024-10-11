@@ -27,7 +27,7 @@
                         <span class="user-col">{{ $attendance->total_absent }}</span>
                         <span class="user-col">{{ $attendance->total_late }}</span>
                         <span class="action">
-                            <a href="#">
+                            <a href="{{ route('attendance.edit', ['attendance' => $attendance]) }}">
                                 <i class="fas fa-pencil-alt"></i>
                             </a>
                         </span>
