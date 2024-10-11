@@ -123,6 +123,11 @@ form{
         .groups{
             @include grid(3);
         }
+
+        .checkbox{
+            @include flex-center;
+            flex-direction: column;
+        }
     }
 
     p {

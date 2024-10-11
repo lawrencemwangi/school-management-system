@@ -11,6 +11,7 @@ use App\Http\Controllers\ParentsController;
 use App\Http\Controllers\ClassesController;
 use App\Http\Controllers\DormController;
 use App\Http\controllers\DisciplineController;
+use App\Http\controllers\AttendanceController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -43,6 +44,7 @@ Route::middleware('user_level:1,0')->group(function() {
 Route::middleware('user_level:2')->group(function() {
     Route::get('/teacher/dashboard' , [DashboardController::class, 'index'])->name('teacher_dashboard');
     Route::resource('/teacher/discipline', DisciplineController::class);
+    Route::resource('/teacher/attendance', AttendanceController::class);
 });
 
 
