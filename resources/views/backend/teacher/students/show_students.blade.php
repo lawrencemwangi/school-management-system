@@ -2,6 +2,7 @@
     <h1>Student Information</h1>
 
     <div class="student_container user_container">
+        <p>There are <strong>{{ $count_students }}</strong> students at the moment</p>
         <div class="user_content">
             <div class="user_details">
                 <span  class="user-col">Names</span>

@@ -4,5 +4,35 @@
     .dashboard_content{
         width: calc(100% - $aside_width);
         padding-left: 0.9em;
+        
+        p{
+            font-size: 1.1em;
+            padding: 0.2em 0; 
+        }
+
+        .admin_dashboard{
+            @include grid(5);
+            gap: 0.9em;
+            padding: 0.9em;
+            padding-bottom: 3em;
+            font-size: 1.1em;
+
+            .admin_items{
+                @include flex_center;
+                gap: 0.9em;
+                background: $secondary-color;
+                padding: 0.2em ;
+                border-radius: 16px;
+                color: $primary-color;
+
+                i,p,span{
+                    font-size: 1.1em;
+                }
+
+                span{
+                    @include flex_center;
+                }
+            }
+        }
     }
 }

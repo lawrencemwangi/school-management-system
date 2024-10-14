@@ -112,7 +112,7 @@ class AttendanceController extends Controller
         $attendance->total_students = count($validated['attendance']);
         $attendance->total_present = count(array_filter($validated['attendance'], fn($data) => strtolower($data['type']) === 'present'));
         $attendance->total_absent = count(array_filter($validated['attendance'], fn($data) => strtolower($data['type']) === 'absent'));
-        // $attendance->total_late = count(array_filter($validated['attendance'], fn($data) => strtolower($data['type']) === 'late'));
+        $attendance->total_late = count(array_filter($validated['attendance'], fn($data) => strtolower($data['type']) === 'late'));
 
         $attendance->save();
 

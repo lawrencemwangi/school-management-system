@@ -4,20 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Student;
+use App\Models\Teacher;
+use App\Models\Dorm;
+use App\Models\Classes;
+use App\Models\Parents;
 
 
 class DashboardController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        $userLevel = auth()->user()->user_level;
-        $menuItems = $this->getMenuLinks();  
-        return view('backend.dashboard', compact('userLevel', 'menuItems'));
-    }
-    
     public function getMenuLinks()
     {
         $menuItems = [];
@@ -41,7 +36,7 @@ class DashboardController extends Controller
     
         } elseif (in_array($userLevel, [2])) {
             $menuItems = [
-                ['icon' => 'fa fa-book-open', 'route' => 'teacher_dashboard','label' => 'Dashboard' ],
+                ['icon' => 'fa fa-chalkboard-teacher', 'route' => 'teacher_dashboard','label' => 'Dashboard' ],
                 ['icon' => 'fa fa-table', 'route' => 'teacher_dashboard','label' => 'Timetable' ],
                 ['icon' => 'fa fa-user-graduate', 'route' => 'student.show', 'label' => 'Students' ],
                 ['icon' => 'fa fa-user-check', 'route' => 'attendance.index', 'label' => 'Attendance'],
@@ -54,7 +49,7 @@ class DashboardController extends Controller
 
         }elseif(in_array($userLevel, [3])){
             $menuItems = [
-                ['icon' => 'fa-solid fa-gauge', 'route' => 'accountant_dashboard', 'label' => 'Dashboard'],
+                ['icon' => 'fa fa-book-open', 'route' => 'accountant_dashboard', 'label' => 'Dashboard'],
                 ['icon' => 'fas fa-coins',  'route' => '#', 'label' => 'Finance'],
                 ['icon' => 'fa fa-chart-line', 'route' => '#', 'label' => 'Reports' ],
             ];
@@ -63,7 +58,12 @@ class DashboardController extends Controller
             $menuItems = [
                 ['icon' => 'fa-solid fa-gauge', 'route' => 'student_dashboard', 'label' => 'Dashboard'],
                 ['icon' => 'fa fa-tasks', 'route' => 'student_dashboard', 'label' => 'Assignments'],
+                ['icon' => 'fa fa-id-card', 'route' => 'student_dashboard', 'label' => 'Student Details'],
                 ['icon' => 'fa fa-user-check', 'route' => 'student_dashboard', 'label' => 'Attendance'],
+                ['icon' => 'fa  fa-book', 'route' => 'student_dashboard','label' => 'Books' ],
+                ['icon' => 'fa fa-table', 'route' => 'student_dashboard','label' => 'Timetable' ],
+                ['icon' => 'fa fa-chart-line', 'route' => 'student_dashboard', 'label' => 'Reports' ],
+                ['icon' => 'fa fa-receipt', 'route' => 'student_dashboard', 'label' => 'Fees Statement' ],
             ];
 
         }elseif(in_array($userLevel, [5])){
@@ -79,52 +79,31 @@ class DashboardController extends Controller
     
         return $menuItems;
     }
-    
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
-     * Store a newly created resource in storage.
+     * Display a listing of the resource.
      */
-    public function store(Request $request)
+    public function index()
     {
-        //
-    }
+        $userLevel = auth()->user()->user_level;
+        $menuItems = $this->getMenuLinks(); 
+        $count_students = Student::all()->count();
+        $count_teachers = Teacher::all()->count();
+        $count_parents = Parents::all()->count();
+        $count_dorms = Dorm::all()->count();
+        $count_classes = Classes::all()->count();
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        
+        
+        return view('backend.dashboard', compact(
+            'userLevel',
+            'menuItems',
+            'count_students',
+            'count_teachers',
+            'count_parents',
+            'count_classes',
+            'count_dorms'
+        ));
     }
 }
+

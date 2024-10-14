@@ -60,6 +60,7 @@ Route::middleware('user_level:3')->group(function() {
 
 Route::middleware('user_level:4')->group(function() {
     Route::get('/student/dashboard' , [DashboardController::class, 'index'])->name('student_dashboard');
+    Route::get('/student/details/{student}', [StudentController::class, 'show_details'])->name('student.details');
 });
 
 

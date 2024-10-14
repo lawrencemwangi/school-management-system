@@ -82,7 +82,8 @@ class StudentController extends Controller
     public function show(Student $student)
     {
         $students = Student::all();
-        return view('backend.teacher.students.show_students', compact('students'));
+        $count_students = Student::all()->count();
+        return view('backend.teacher.students.show_students', compact('students', 'count_students'));
     }
 
     /**
@@ -155,5 +156,11 @@ class StudentController extends Controller
     {
         $students = Student::with('parent.user')->findOrFail($student);
         return view('backend.teacher.students.view_student',compact('students'));
+    }
+
+
+    public function show_details($student)
+    {
+      
     }
 }
