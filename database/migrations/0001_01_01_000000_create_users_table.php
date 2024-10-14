@@ -28,6 +28,7 @@ return new class extends Migration
             $table->unsignedtinyinteger('user_level')->default(4);
             //1:active , 2: inactive
             $table->unsignedtinyinteger('status')->default(1);
+            $table->timestamp('last_seen')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

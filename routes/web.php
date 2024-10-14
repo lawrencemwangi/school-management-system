@@ -21,14 +21,14 @@ Route::get('/about', [HomeController::class, 'About'])->name('about');
 Route::get('/contact', [HomeController::class, 'Contact'])->name('contact');
 
 
-Route::middleware('auth', 'verified')->group(function () {
+Route::middleware('auth', 'verified','last_seen')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
 
-Route::middleware('user_level:1,0')->group(function() {
+Route::middleware('user_level:1,0','last_seen')->group(function() {
     Route::get('/admin/dashboard' , [DashboardController::class, 'index'])->name('admin_dashboard');
     Route::resource('admin/settings', SettingsController::class);
     Route::resource('admin/users', UserController::class);
@@ -41,7 +41,7 @@ Route::middleware('user_level:1,0')->group(function() {
 
 
 
-Route::middleware('user_level:2')->group(function() {
+Route::middleware('user_level:2','last_seen')->group(function() {
     Route::get('/teacher/dashboard' , [DashboardController::class, 'index'])->name('teacher_dashboard');
     Route::resource('/teacher/discipline', DisciplineController::class);
     Route::resource('/teacher/attendance', AttendanceController::class);
@@ -53,18 +53,18 @@ Route::middleware('user_level:2')->group(function() {
 });
 
 
-Route::middleware('user_level:3')->group(function() {
+Route::middleware('user_level:3','last_seen')->group(function() {
     Route::get('/accountant/dashboard' , [DashboardController::class, 'index'])->name('accountant_dashboard');
 });
 
 
-Route::middleware('user_level:4')->group(function() {
+Route::middleware('user_level:4','last_seen')->group(function() {
     Route::get('/student/dashboard' , [DashboardController::class, 'index'])->name('student_dashboard');
     Route::get('/student/details/{student}', [StudentController::class, 'show_details'])->name('student.details');
 });
 
 
-Route::middleware('user_level:5')->group(function() {
+Route::middleware('user_level:5','last_seen')->group(function() {
     Route::get('/parent/dashboard' , [DashboardController::class, 'index'])->name('parent_dashboard');
 });
 
