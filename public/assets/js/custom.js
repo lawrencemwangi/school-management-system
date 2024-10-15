@@ -44,32 +44,3 @@ document.getElementById('navbar-toggle-icon').addEventListener('click', function
         toggleIcon.innerHTML = '&lt;'; 
     }
 });
-
-
-
-// script for list the student in the attendence list dynamically
-// $(document).ready(function() {
-//     $('#class_id').change(function() {
-//         let class_id = $(this).val();
-        
-//         if (class_id) {
-//             $.ajax({
-//                 url: "{{ route('attendance.fetch-students') }}", 
-//                 method: "POST",
-//                 data: {
-//                     _token: "{{ csrf_token() }}",
-//                     class_id: class_id
-//                 },
-//                 success: function(response) {
-//                     $('#students-section').html(response);
-//                     $('#submit-btn').show();
-//                 }
-//             });
-//         } else {
-//             $('#students-section').html('<p>Please select a class to see the students.</p>');
-//             $('#submit-btn').hide(); 
-//         }
-//     });
-// });
-
-

@@ -7,7 +7,6 @@
                 <span  class="user-col">Names</span>
                 <span class="user-col email">Email </span>
                 <span class="user-col">Phone No.</span>
-                <span class="user-col">Other Number</span>
                 <span class="user-col">Gender</span>
                 <span class="user-col">User Level</span>
                 <span class="user-col">Status</span>
@@ -25,13 +24,12 @@
                         </span>
                         <span class="user-col email">{{ $user->email }}</span>
                         <span class="user-col">{{ $user->phone_number  }}</span>
-                        <span class="user-col">{{ $user->other_phone  }}</span>
                         <span class="user-col">{{ $user->gender }}</span>
                         <span class="user-col">{{ $user->user_level_label }}</span>
                         <span class="{{ $user->status == 1 ? 'text_success' : 'text_danger' }} user-col">
                             {{ $user->status == 1 ? 'Active' : 'Inactive' }}
                         </span>
-                        <span class="user-col text_success">{{ $user->last_seen ? \Carbon\Carbon::parse($user->last_seen)->format(' H:i:s Y-m-d ') : 'Never' }}</span>
+                        <span class="user-col text_success">{{ $user->last_seen ? \Carbon\Carbon::parse($user->last_seen)->format(' H:i:s D-m-Y ') : 'Never' }}</span>
                         <span class="action">
                             <a href="{{ route('users.edit',['user' => $user]) }}">
                                 <i class="fas fa-pencil-alt"></i>

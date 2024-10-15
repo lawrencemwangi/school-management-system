@@ -15,6 +15,7 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias ([
             'user_level' => \App\Http\Middleware\CheckuserMiddleware::class,
             'last_seen' => \App\Http\Middleware\last_seenMiddelware::class,
+            'inactive'  => \App\Http\Middleware\inactiveMiddleware::class,
 
         ]);
     })

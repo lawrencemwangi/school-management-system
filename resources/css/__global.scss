@@ -15,7 +15,6 @@ body{
 }
 
 .header{
-    // *{border: 1px solid green};
     @include grid(3);
     padding: 0.5em;
     align-items: center;
@@ -61,4 +60,41 @@ body{
 .text_danger{
     color: $danger-color;
     font-weight: 550;
+}
+
+.school{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    margin: 20px auto;
+    max-width: 600px; 
+    font-family: Arial, sans-serif;
+
+    button{
+        padding: 0.5em 1.5em;
+        background-color: $secondary-color;
+        border: none;
+        border-radius: 12px;
+        margin: 0.9em ;
+        
+        a{
+            @include anchor;
+            color: $primary-color;
+        }
+    }
+
+    p{
+        color: $danger-color;
+    }
+}
+
+.lastseen_details{
+    // *{border:1px solid green}
+    @include grid(2);
+    padding: 0.2em 0;
+    font-size: 1.1em;
 }

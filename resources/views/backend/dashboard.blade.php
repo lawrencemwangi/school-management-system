@@ -1,12 +1,16 @@
 <x-admin-layout>
     <div class="admin_container">
-        <p>Welcome <strong>{{ Auth::check() ? Auth::user()->user_level_label : 'Guest'}}</strong> 
-            {{  Auth::user()->first_name}} {{  Auth::user()->last_name}}
-        </p>
+        <div class="lastseen_details">
+            <p>Welcome <strong>{{ Auth::check() ? Auth::user()->user_level_label : 'Guest'}}</strong> 
+                {{  Auth::user()->first_name}} {{  Auth::user()->last_name}}
+            </p>
+            <p>Last Seen at 
+                <strong>{{ Auth::user()->last_seen ? \Carbon\Carbon::parse(Auth::user()->last_seen)->format(' H:i:s  D-m-Y ') : 'Never' }}</strong>
+            </p>
+        </div>
         
         <div class="dashboard_infor">
             <div class="admin_dashboard">
-                
                 <div class="admin_items">
                     <i class="fa fa-user-graduate"></i>
                     <div class="details">

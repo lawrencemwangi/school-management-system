@@ -14,8 +14,6 @@
             @include grid(5);
             gap: 0.9em;
             padding: 0.9em;
-            padding-bottom: 3em;
-            font-size: 1.1em;
 
             .admin_items{
                 @include flex_center;

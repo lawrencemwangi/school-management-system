@@ -58,7 +58,7 @@ class DashboardController extends Controller
             $menuItems = [
                 ['icon' => 'fa-solid fa-gauge', 'route' => 'student_dashboard', 'label' => 'Dashboard'],
                 ['icon' => 'fa fa-tasks', 'route' => 'student_dashboard', 'label' => 'Assignments'],
-                ['icon' => 'fa fa-id-card', 'route' => 'student_dashboard', 'label' => 'Student Details'],
+                ['icon' => 'fa fa-id-card', 'route' => 'student.show', 'label' => 'Student Details'],
                 ['icon' => 'fa fa-user-check', 'route' => 'student_dashboard', 'label' => 'Attendance'],
                 ['icon' => 'fa  fa-book', 'route' => 'student_dashboard','label' => 'Books' ],
                 ['icon' => 'fa fa-table', 'route' => 'student_dashboard','label' => 'Timetable' ],
@@ -93,8 +93,6 @@ class DashboardController extends Controller
         $count_dorms = Dorm::all()->count();
         $count_classes = Classes::all()->count();
 
-        
-        
         return view('backend.dashboard', compact(
             'userLevel',
             'menuItems',
@@ -104,6 +102,12 @@ class DashboardController extends Controller
             'count_classes',
             'count_dorms'
         ));
+    }
+
+    public function show(Request $request)
+    {
+        $message = session('message', 'No message available.');
+        return view('partials.error', compact('message'));
     }
 }
 
