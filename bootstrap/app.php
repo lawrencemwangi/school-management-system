@@ -16,7 +16,12 @@ return Application::configure(basePath: dirname(__DIR__))
             'user_level' => \App\Http\Middleware\CheckuserMiddleware::class,
             'last_seen' => \App\Http\Middleware\last_seenMiddelware::class,
             'inactive'  => \App\Http\Middleware\inactiveMiddleware::class,
-
+            'admin' =>  \App\Http\Middleware\AdminMiddleware::class,
+            'parent' => \App\Http\Middleware\parentMiddleware::class,
+            'accountant' => \App\Http\Middleware\accountantMiddleware::class,
+            'student' => \App\Http\Middleware\studentMiddleware::class,
+            'teacher' => \App\Http\Middleware\teacherMiddleware::class,
+ 
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
