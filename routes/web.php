@@ -12,6 +12,7 @@ use App\Http\Controllers\ClassesController;
 use App\Http\Controllers\DormController;
 use App\Http\controllers\DisciplineController;
 use App\Http\controllers\AttendanceController;
+use App\Http\controllers\FeestructureController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -38,6 +39,7 @@ Route::middleware('admin','last_seen', 'inactive')->group(function() {
     Route::resource('admin/parents', ParentsController::class);
     Route::resource('admin/classes', ClassesController::class);
     Route::resource('admin/dorms', DormController::class);
+    Route::resource('admin/feestructure', FeestructureController::class);
 });
 
 

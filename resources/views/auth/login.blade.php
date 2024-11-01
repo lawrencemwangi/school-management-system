@@ -18,7 +18,7 @@
                     <span class="inline_alert">{{ $errors->first('password') }}</span>
                 </div>
 
-                <p>Don't have account? <a href="{{ route('register') }}">Register</a></p>
+                {{-- <p>Don't have account? <a href="{{ route('register') }}">Register</a></p> --}}
                 <p><a href="{{ route('password.request') }}">Forgot Password?</a></p>
     
                 <button type="submit">Log In</button>

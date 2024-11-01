@@ -23,7 +23,7 @@
                     @endphp
                 
                     @if(array_key_exists($userLevel, $dashboardRoutes))
-                        <a href="{{ route($dashboardRoutes[$userLevel]) }}">Dashboard</a>
+                        <a href="{{ route($dashboardRoutes[$userLevel]) }}">{{ Auth::user()->user_level_label }}</a>
                     @else
                         <li>Dashboard</li>
                     @endif
@@ -50,10 +50,10 @@
                             </form>
                         </div>
                     </div>
-                @else
+                {{-- @else
                     <div class="btn">
                         <a href="{{ route('login') }}">Log in</a>
-                    </div>
+                    </div> --}}
                 @endif
             </div>
         </ul>
