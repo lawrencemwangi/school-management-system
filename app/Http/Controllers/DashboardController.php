@@ -28,8 +28,12 @@ class DashboardController extends Controller
                 ['icon' => 'fa fa-school', 'route' => 'classes.index', 'label' => 'Classes'],
                 ['icon' => 'fa fa-child',  'route' => 'parents.index', 'label' => 'Parents'],
                 ['icon' => 'fa fa-user-graduate', 'route' => 'students.index', 'label' => 'Students' ],
-                ['icon' => 'fa fa-coins',  'route' => 'users.index', 'label' => 'Finance'],
-                ['icon' => 'fa fa-coins',  'route' => 'feestructure.index', 'label' => 'Feestructure'],
+                ['icon' => 'fa fa-coins', 'label' => 'finances', 'submenu' => 
+                    [
+                        ['icon' => 'fa fa-coins',  'route' => 'users.index', 'label' => 'Finance'],
+                        ['icon' => 'fa fa-coins',  'route' => 'feestructure.index', 'label' => 'Feestructure'],
+                    ]
+                ],
                 ['icon' => 'fa fa-bell', 'route' => 'users.index','label' => 'Notifications' ],
                 ['icon' => 'fa fa-chart-line', 'route' => 'users.index', 'label' => 'Reports' ],
                 ['icon' => 'fa fa-cog',  'route' => 'settings.index', 'label' => 'Settings' ],

@@ -16,11 +16,28 @@
     <div class="aside_link " id="navbar">
         <ul>
             @foreach($menuItems as $item)
-                <li class="{{ Str::startsWith(Route::currentRouteName(), explode('.', $item['route'])[0]) ? 'active' : '' }}">
-                    <a href="{{ route($item['route']) }}">
-                        <i class="{{ $item['icon'] }}"></i>
-                        <span class="label">{{ $item['label'] }}</span>
-                    </a>
+                <li class="{{ Str::startsWith(Route::currentRouteName(), explode('.', $item['route'] ?? '')[0]) ? 'active' : '' }}">                    @if (isset($item['submenu']))
+                        <a href="javascript:void(0)" class="dropdown-toggle">
+                            <i class="{{ $item['icon'] }}"></i>
+                            <span class="label">{{ $item['label'] }}</span>
+                            <i class="fa fa-caret-down"></i> 
+                        </a>
+                        <ul class="submenu">
+                            @foreach($item['submenu'] as $subitem)
+                                <li>
+                                    <a href="{{ route($subitem['route']) }}">
+                                        <i class="{{ $subitem['icon'] }}"></i>
+                                        <span>{{ $subitem['label'] }}</span>
+                                    </a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    @else
+                        <a href="{{ route($item['route']) }}">
+                            <i class="{{ $item['icon'] }}"></i>
+                            <span class="label">{{ $item['label'] }}</span>
+                        </a>
+                    @endif
                 </li>
             @endforeach
         </ul>

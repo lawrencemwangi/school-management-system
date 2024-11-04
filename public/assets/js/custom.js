@@ -44,3 +44,24 @@ document.getElementById('navbar-toggle-icon').addEventListener('click', function
         toggleIcon.innerHTML = '&lt;'; 
     }
 });
+
+
+//to toggle the dropdown menu in the admin sidebar
+document.addEventListener('DOMContentLoaded', function() {
+    // Select all dropdown toggle links
+    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+
+    dropdownToggles.forEach(toggle => {
+        toggle.addEventListener('click', function(event) {
+            event.preventDefault();
+            const submenu = this.nextElementSibling;
+
+            // Toggle visibility of the submenu
+            if (submenu.style.display === 'block') {
+                submenu.style.display = 'none';
+            } else {
+                submenu.style.display = 'block';
+            }
+        });
+    });
+});

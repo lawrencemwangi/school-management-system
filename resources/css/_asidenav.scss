@@ -98,12 +98,37 @@ $collapsed_width: 70px;
 
         ul{
             list-style: none;
+           
 
             li{
                 padding: 0.2em;
                 @include flex_center;
                 justify-content: left;
                 gap: 0.5em; 
+                position: relative;
+                display: inline-block;
+
+                .submenu{
+                    display: none;
+                    list-style: none;
+                    top: 100%; 
+                    left: 0;
+                    padding: 0;
+                    margin: 0;
+                    background-color: #f9f9f9;
+                    border: 1px solid #ccc;
+                    border-radius: 4px;
+                    min-width: 150px;
+                    z-index: 1; 
+
+
+                  
+                    a{
+                        @include anchor;
+                        display:block;
+                        white-space: nowrap;
+                    }
+                }
 
                 a{
                     @include anchor;
