@@ -4,8 +4,10 @@
             <p>Welcome <strong>{{ Auth::check() ? Auth::user()->user_level_label : 'Guest'}}</strong> 
                 {{  Auth::user()->first_name}} {{  Auth::user()->last_name}}
             </p>
-            <p>Last Seen at 
-                <strong>{{ Auth::user()->last_seen ? \Carbon\Carbon::parse(Auth::user()->last_seen)->format(' H:i:s  D-m-Y ') : 'Never' }}</strong>
+            <p>Last Seen:
+               <span class="{{ Auth::user()->onlineDetails == 'Online' ? 'text_success' : 'text_danger' }}">
+                   {{ Auth::user()->onlineDetails }}</p>
+                </span>
             </p>
         </div>
         
@@ -59,7 +61,6 @@
                     </div>
                 </div>
             </div>
-    
         </div>
     </div>
 </x-admin-layout>

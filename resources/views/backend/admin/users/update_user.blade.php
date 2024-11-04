@@ -108,10 +108,7 @@
                     </div>
                     <span class="inline_alert">{{ $errors->first('user_level') }}</span>
                 </div>
-                <details>
-                    <summary>details</summary>
-                    Hello Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem magni voluptatem tenetur recusandae ea saepe debitis placeat sed architecto repellendus.
-                </details>
+                <span>Users Last Seen:  <strong>{{ $user->last_seen }}</strong></span>
             </div>
 
             <button type="submit">Update</button>

@@ -13,7 +13,7 @@
         .admin_dashboard{
             @include grid(5);
             gap: 0.9em;
-            padding: 0.9em;
+            padding: 0.8em;
 
             .admin_items{
                 @include flex_center;

@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Carbon\Carbon;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -75,7 +76,27 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->belongsTo(Parent::class);
     }
 
-    public function attendance() {
+    public function attendance() 
+    {
         return $this->hasMany(Attendance::class);
     }
+
+
+    protected $casts = [
+        'last_seen' => 'datetime',
+    ];
+
+
+    //to check if the User is online or Offline
+    public function getOnlineDetailsAttribute()
+    {
+        if ($this->last_seen && $this->last_seen->diffInMinutes(Carbon::now()) < 5) {
+            return 'Online';
+        }
+
+        return 'Last seen: ' . $this->last_seen->diffForHumans();
+    }
+
+
+
 }
