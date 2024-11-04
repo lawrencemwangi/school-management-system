@@ -65,3 +65,45 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+
+// for add the fees category dynamically
+document.addEventListener('DOMContentLoaded', function () {
+    const feeCategoriesContainer = document.getElementById('fee-categories');
+
+    // Add new category row
+    document.getElementById('add-category').addEventListener('click', function () {
+        const newCategoryRow = document.createElement('div');
+        newCategoryRow.classList.add('fee-category-item');
+        newCategoryRow.innerHTML = `
+            <div class="groups">
+                <div class="input_group">
+                    <label for="fee_category[]">Fee Category</label>
+                    <input type="text" name="fee_category[]" class="form-control" placeholder="e.g., Tuition Fee" required>
+                </div>
+
+                <div class="input_group">
+                    <label for="amount[]">Amount</label>
+                    <input type="number" name="amount[]" class="form-control" placeholder="e.g., 5000" required>
+                </div>
+
+                <div class="col-md-2">
+                    <button type="button" class="btn btn-danger remove-category" style="margin-top: 30px;">Remove</button>
+                </div>
+            </div>
+        `;
+        feeCategoriesContainer.appendChild(newCategoryRow);
+
+        // Add event listener for remove button
+        newCategoryRow.querySelector('.remove-category').addEventListener('click', function () {
+            newCategoryRow.remove();
+        });
+    });
+
+    // Remove category row
+    document.querySelectorAll('.remove-category').forEach(button => {
+        button.addEventListener('click', function () {
+            button.closest('.fee-category-item').remove();
+        });
+    });
+});

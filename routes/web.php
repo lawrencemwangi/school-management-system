@@ -40,6 +40,7 @@ Route::middleware('admin','last_seen', 'inactive')->group(function() {
     Route::resource('admin/classes', ClassesController::class);
     Route::resource('admin/dorms', DormController::class);
     Route::resource('admin/feestructure', FeestructureController::class);
+    Route::get('/feestructure', [FeestructureController::class, 'view_feestucture'])->name('fee_structure');
 });
 
 

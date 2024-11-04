@@ -6,12 +6,12 @@
 
     return [
         // main School information
-        'School_name' => 'Kiambu High School',
-        'School_logo' => 'assets/images/school_logo.jpg',
-        'school_address' => 'P.O.Box 172-09000, Kiambu',
+        'school_name' => 'Kiambu High School',
+        'school_logo' => 'assets/images/school_logo.jpg',
+        'school_address' => 'P.O.Box 172-09000 Kiambu, Kenya',
         'school_abbreviation' => 'KHS',
         'school_contact' => '0799509242, 0700000000',
-        'school_email' => 'info@kiambuhigh@gmail.com',
+        'school_email' => 'info@kiambuhigh.gmail.com',
         'school_website' => 'https://kiambuhigh.com',
         'school_motto' => 'Strive to excell',
         'school_vision' => 'Be the leading school in the country giving the best education skills',

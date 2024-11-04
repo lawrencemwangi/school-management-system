@@ -13,7 +13,11 @@ return new class extends Migration
     {
         Schema::create('feestructures', function (Blueprint $table) {
             $table->id();
-            
+            $table->string('academic_year');
+            $table->string('term');
+            $table->string('form');
+            $table->json('fees_categories');
+            $table->decimal('total_amount');
             $table->timestamps();
         });
     }

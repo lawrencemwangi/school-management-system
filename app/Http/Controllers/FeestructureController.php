@@ -12,7 +12,8 @@ class FeestructureController extends Controller
      */
     public function index()
     {
-        return view('backend.admin.fees.list_feestructure');
+        $fees = Feestructure::all();
+        return view('backend.admin.fees.list_feestructure', compact('fees'));
     }
 
     /**
@@ -28,7 +29,35 @@ class FeestructureController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'fee_category' => 'required|array',
+            'amount' => 'required|array',
+            'amount.*' => 'required|numeric|min:1',
+        ]);
+
+        $feeCategories = [];
+
+        foreach($request->fee_category as $index => $category){
+            $feeCategories[] = [
+                'category' => $category,
+                'amount' => $request->amount[$index],
+            ];
+        }
+
+        $feestructure =  new Feestructure;
+        $feestructure->academic_year = $request->input('academic_year');
+        $feestructure->form = $request->input('class_form');
+        $feestructure->term = $request->input('term');
+        $feestructure->fees_categories = json_encode($feeCategories);
+        $feestructure->total_amount = array_sum(array_column($feeCategories, 'amount'));
+
+        $feestructure->save();
+        return redirect()->route('feestructure.index')->with('success',[
+            'message' => 'Feestructure was added successfully',
+            'duration' => $this->alert_message_duration,
+        ]);
+
+
     }
 
     /**
@@ -61,5 +90,12 @@ class FeestructureController extends Controller
     public function destroy(Feestructure $feestructure)
     {
         //
+    }
+
+
+    //to view the feesturcure 
+    public function view_feestucture()
+    {
+        return view('backend.admin.fees.view_feestructure');
     }
 }
