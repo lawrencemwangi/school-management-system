@@ -5,7 +5,7 @@
     <div class="aside_logo">
         <a href="{{ route('home') }}" target="_blank">
             <img src="{{ asset('/assets/images/image.jpg') }}" width="35px" height="35px" alt="{{ config('app.name') }}">
-            <span>Kiambu High</span> 
+            <span>{{ config('school_setting.school_abbreviation')}}</span> 
         </a>
     </div>
 

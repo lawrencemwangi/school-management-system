@@ -32,13 +32,13 @@
 
                 <div class="groups">
                     <div class="input_group">
-                        <label for="email">Username</label>
+                        <label for="email">Email</label>
                         <input type="email" name="email" id="email" value="{{ old('email', $user->email) }}">
                         <span class="inline_alert">{{  $errors->first('email') }}</span>
                     </div>
 
                     <div class="input_group">
-                        <label for="phone_number">Username</label>
+                        <label for="phone_number">Phone Number</label>
                         <input type="number" name="phone_number" id="phone_number" value="{{ old('phone_number', $user->phone_number) }}">
                         <span class="inline_alert">{{  $errors->first('phone_number') }}</span>
                     </div>
