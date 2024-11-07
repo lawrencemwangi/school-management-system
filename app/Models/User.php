@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -97,6 +98,20 @@ class User extends Authenticatable implements MustVerifyEmail
         return 'Last seen: ' . $this->last_seen->diffForHumans();
     }
 
+    public function getImageUrl()
+    {
+        if($this->image && Storage::disk('public')->exists('users/' . $this->image)){
+            return  Storage::url('users/' . $this->image);
 
+        }else{
+            return asset('assets/images/user.png');
+        }
+    }
 
+    public function getProfileImageUrlAttribute()
+    {
+        return $this->image 
+            ? asset('storage/users/' . $this->image) 
+            : asset('assets/images/user.png'); 
+    }
 }

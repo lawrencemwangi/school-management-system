@@ -159,8 +159,9 @@ class StudentController extends Controller
     }
 
 
-    public function show_details($student)
+    public function show_details()
     {
-      
+        $students = Student::with('parent.user')->firstOrFail();
+        return view('backend.student.view_details',compact('students'));
     }
 }

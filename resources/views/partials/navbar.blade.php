@@ -39,7 +39,7 @@
                     <div class="profile">
                        <div class="image">
                             <a href="{{ route('profile.edit') }}">
-                                <img src="{{ asset('/assets/images/logo.jpg') }}" alt="...">
+                                <img src="{{ Auth::user()->getImageUrl() }}" alt="...">
                             </a>
                        </div>
                        

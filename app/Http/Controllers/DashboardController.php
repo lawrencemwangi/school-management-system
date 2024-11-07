@@ -34,6 +34,12 @@ class DashboardController extends Controller
                         ['icon' => 'fa fa-coins',  'route' => 'feestructure.index', 'label' => 'Feestructure'],
                     ]
                 ],
+                [ 'icon' => 'fa fa-door-open', 'label' => 'Admission', 'submenu' =>
+                    [   
+                        ['icon' => 'fa fa-user-check', 'route'=> 'users.index', 'label' => 'Enrollment'],
+                        ['icon' => 'fa fa-file-signature  ', 'route'=> 'users.index', 'label' => 'Clearance'],
+                    ]
+                ],
                 ['icon' => 'fa fa-bell', 'route' => 'users.index','label' => 'Notifications' ],
                 ['icon' => 'fa fa-chart-line', 'route' => 'users.index', 'label' => 'Reports' ],
                 ['icon' => 'fa fa-cog',  'route' => 'settings.index', 'label' => 'Settings' ],
@@ -63,12 +69,17 @@ class DashboardController extends Controller
             $menuItems = [
                 ['icon' => 'fa-solid fa-gauge', 'route' => 'student_dashboard', 'label' => 'Dashboard'],
                 ['icon' => 'fa fa-tasks', 'route' => 'student_dashboard', 'label' => 'Assignments'],
-                ['icon' => 'fa fa-id-card', 'route' => 'student.show', 'label' => 'Student Details'],
+                ['icon' => 'fa fa-id-card', 'route' => 'student_details', 'label' => 'Student Details'],
                 ['icon' => 'fa fa-user-check', 'route' => 'student_dashboard', 'label' => 'Attendance'],
                 ['icon' => 'fa  fa-book', 'route' => 'student_dashboard','label' => 'Books' ],
                 ['icon' => 'fa fa-table', 'route' => 'student_dashboard','label' => 'Timetable' ],
                 ['icon' => 'fa fa-chart-line', 'route' => 'student_dashboard', 'label' => 'Reports' ],
-                ['icon' => 'fa fa-receipt', 'route' => 'student_dashboard', 'label' => 'Fees Statement' ],
+                ['icon' => 'fa fa-receipt', 'label' => 'Financials', 'submenu' =>
+                    [
+                        ['icon' => 'fa fa-coins', 'route' => 'student_dashboard' ,'label' => 'Fee structure'],
+                        ['icon' => 'fa fa-receipt', 'route' => 'student_dashboard' ,'label' => 'Fee statement'],
+                    ]
+                ],
             ];
 
         }elseif(in_array($userLevel, [5])){

@@ -27,6 +27,7 @@ Route::middleware('auth', 'verified','last_seen', 'inactive')->group(function ()
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::patch('/profile/image', [ProfileController::class, 'Profile_image'])->name('profile.image');
 });
 
 
@@ -65,7 +66,8 @@ Route::middleware('accountant','last_seen', 'inactive')->group(function() {
 
 Route::middleware('student','last_seen', 'inactive')->group(function() {
     Route::get('/student/dashboard' , [DashboardController::class, 'index'])->name('student_dashboard');
-    Route::get('/student/details/{student}', [StudentController::class, 'show_details'])->name('student.details');
+    Route::get('/student/details', [StudentController::class, 'show_details'])->name('student_details');
+
 });
 
 

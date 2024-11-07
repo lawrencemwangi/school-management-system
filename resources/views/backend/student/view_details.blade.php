@@ -2,12 +2,16 @@
     <h1>student Detials</h1>
 
     <div class="student_container">
-        <div class="btn">
-            <button><a href="{{ route('student.show') }}">Back</a></button>
-        </div>
         <div class="student_data">
             <div class="student_infor">
-                <p>Student Names:
+
+            {{-- <img src="{{ $students->user->image }}" alt=""> --}}
+                <p>Student Names: 
+                    <span>{{ $students->user->first_name }}</span>
+                    <span>{{ $students->user->last_name }}</span>
+                </p>
+
+                <p>Parent Names:
                     <span>
                         {{ $students->parent->user->first_name }}
                         {{ $students->parent->user->last_name }} 
@@ -33,13 +37,14 @@
                 <p>Email: 
                     <span>{{ $students->user->email }}</span>
                 </p>
+            </div>
+            
+            <div class="student_infor">
 
                 <p>Phone Number: 
                     <span>{{ $students->user->phone_number }}</span>
                 </p>
-            </div>
-            
-            <div class="student_infor">
+                
                 <p>Dorm Name: 
                     <span>{{ $students->dorm->dorm_name }}</span>
                 </p>

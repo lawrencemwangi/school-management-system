@@ -46,7 +46,7 @@
     <div class="aside_profile">
         <div class="img">
             <a href="{{ route('profile.edit') }}">
-                <img src="{{ asset('/assets/images/logo.jpg') }}" alt="{{ Auth::user()->first_name }}">
+                <img src="{{ Auth::user()->getImageUrl() }}" alt="{{ Auth::user()->first_name }}">
             </a>
         </div>
         <div class="profile_details">

@@ -5,9 +5,21 @@
         <div class="btn">
             <button><a href="{{ route('student.show') }}">Back</a></button>
         </div>
+
+        <div class="image_profile">
+            <h3>Student Profile picture</h3>
+            <img src="{{ $students->user->profile_image_url }}" alt="Student Profile Image">
+        </div>
+
         <div class="student_data">
             <div class="student_infor">
                 <p>Student Names:
+                    <span>
+                        {{ $students->user->first_name }}
+                        {{ $students->user->last_name }} 
+                    </span>
+                </p>
+                <p>Parent Names:
                     <span>
                         {{ $students->parent->user->first_name }}
                         {{ $students->parent->user->last_name }} 
@@ -32,14 +44,14 @@
     
                 <p>Email: 
                     <span>{{ $students->user->email }}</span>
-                </p>
-
-                <p>Phone Number: 
-                    <span>{{ $students->user->phone_number }}</span>
-                </p>
+                </p>                
             </div>
             
             <div class="student_infor">
+                <p>Phone Number: 
+                    <span>{{ $students->user->phone_number }}</span>
+                </p>
+
                 <p>Dorm Name: 
                     <span>{{ $students->dorm->dorm_name }}</span>
                 </p>

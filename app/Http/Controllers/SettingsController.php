@@ -21,8 +21,7 @@ class SettingsController extends Controller
      */
     public function create()
     {
-        // return view('backend.admin.settings.update_settings');
-        //
+        // return view('backend.admin.settings.add_settings');
     }
 
     /**
@@ -136,9 +135,9 @@ class SettingsController extends Controller
         foreach ($settings as $key => $value) {
             if ($key == 'school_logo' && $request->hasFile('school_logo')) {
                 $logoPath = $request->file('school_logo')->store('public/images');
-                SchoolSetting::updateOrCreate(['key' => 'school_logo'], ['value' => $logoPath]);
+                Settings::updateOrCreate(['key' => 'school_logo'], ['value' => $logoPath]);
             } else {
-                SchoolSetting::updateOrCreate(['key' => $key], ['value' => $value]);
+                Settings::updateOrCreate(['key' => $key], ['value' => $value]);
             }
         }
 
@@ -152,7 +151,7 @@ class SettingsController extends Controller
 
     private function loadConfig()
     {
-        $settings = SchoolSetting::all();
+        $settings = Settings::all();
         foreach ($settings as $setting) {
             Config::set('school_settings.' . $setting->key, $setting->value);
         }

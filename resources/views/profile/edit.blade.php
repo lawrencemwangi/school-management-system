@@ -84,6 +84,29 @@
             </form>
         </div>
 
+        <div class="image_infro ">
+            <h1>Profile Picture</h1>
+
+            <form action="{{ route('profile.image') }}" method="post" enctype="multipart/form-data">
+                @csrf
+                @method('PATCH')
+
+                <div class="input_group">
+                    <label for="profile_image">Image (<strong>Max: 1mb</strong>)</label>
+                    <input type="file" name="profile_image" id="profile_image" accept="image/*" value="{{ old('profile_image') }}">
+                    <span class="inline_alert">{{ $errors->first('profile_image') }}</span>
+                </div>
+
+                <div class="show_image">
+                    <h5>Current profile picture</h5>
+                    <img src="{{ asset('storage/users/' . $user->image) }}" width="70px" height="70px" alt="Profile Image">
+                </div>
+                
+                <button type="submit">Update</button>
+            </form>
+
+            
+        </div>
         
         <div class="profile_delete">
             <h3>Delete Account</h3>
