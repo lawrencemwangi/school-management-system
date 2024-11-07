@@ -33,6 +33,7 @@ Route::middleware('auth', 'verified','last_seen', 'inactive')->group(function ()
 Route::middleware('admin','last_seen', 'inactive')->group(function() {
     Route::get('/admin/dashboard' , [DashboardController::class, 'index'])->name('admin_dashboard');
     Route::resource('admin/settings', SettingsController::class);
+    Route::get('/admin/school/settings', [SettingsController::class, 'schoolSetting'])->name('school_settings');
     Route::resource('admin/users', UserController::class);
     Route::resource('admin/teachers', TeacherController::class);
     Route::resource('admin/students', StudentController::class)->except('show');
@@ -40,7 +41,7 @@ Route::middleware('admin','last_seen', 'inactive')->group(function() {
     Route::resource('admin/classes', ClassesController::class);
     Route::resource('admin/dorms', DormController::class);
     Route::resource('admin/feestructure', FeestructureController::class);
-    Route::get('/feestructure', [FeestructureController::class, 'view_feestucture'])->name('fee_structure');
+    Route::get('/feestructure/{id}', [FeestructureController::class, 'view_feestructure'])->name('fee_structure');
 });
 
 

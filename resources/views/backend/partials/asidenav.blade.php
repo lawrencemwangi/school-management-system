@@ -4,7 +4,7 @@
     </div>
     <div class="aside_logo">
         <a href="{{ route('home') }}" target="_blank">
-            <img src="{{ asset('/assets/images/image.jpg') }}" width="35px" height="35px" alt="{{ config('app.name') }}">
+            <img src="{{ asset(config('school_setting.school_logo')) }}" width="35px" height="35px" alt="{{ config('school_setting.school_abbreviation') }}">
             <span>{{ config('school_setting.school_abbreviation')}}</span> 
         </a>
     </div>
@@ -20,11 +20,11 @@
                         <a href="javascript:void(0)" class="dropdown-toggle">
                             <i class="{{ $item['icon'] }}"></i>
                             <span class="label">{{ $item['label'] }}</span>
-                            <i class="fa fa-caret-down"></i> 
+                            <i class="fa fa-caret-down"></i>
                         </a>
                         <ul class="submenu">
                             @foreach($item['submenu'] as $subitem)
-                                <li>
+                                <li class="menu">
                                     <a href="{{ route($subitem['route']) }}">
                                         <i class="{{ $subitem['icon'] }}"></i>
                                         <span>{{ $subitem['label'] }}</span>

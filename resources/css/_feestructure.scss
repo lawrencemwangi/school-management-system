@@ -1,0 +1,82 @@
+.fees_container{
+    // *{border:1px solid green}
+    padding: 0.9em;
+    margin: 0.5em 0.9em;
+    border: 1px solid $secondary-color;
+    border-radius: 4px;
+
+    .fees_view{
+        .feesturcture_header{
+            @include flex_center;
+            flex-direction: column;
+            font-size: 1em;
+
+            .image{
+                @include flex_center;
+                
+                img{
+                    width: 50px;
+                    height: 50px;
+                }
+            }
+
+            .school_name{
+                font-size:1.9em;
+            }
+        }
+    }
+    h1{
+        text-align: center;
+    }
+
+    .fees_content{
+        .fees_infor{
+            span{
+                font-size: 1.1em;
+                font-weight: 550;
+            }
+        }
+    }
+
+    .fees_details{
+        padding: 0.5em;
+        border: 1px solid $secondary-color;
+
+        .fees_title{
+            @include flex_center;
+            justify-content: space-between;
+            border-bottom: 1px solid $secondary-color;
+            padding: 0.3em;
+        }
+
+        .fees_items{
+            display:  flex;
+            flex-direction: column;
+            gap: 10px;
+            font-size: 1.1em;
+            
+            .fees_item{
+                display: flex;
+                justify-content: space-between;
+                padding: 10px;
+                border-bottom: 1px solid $secondary-color;
+            }
+
+            .category_name,.category_amount{
+                display: inline-block;
+            }
+        }
+
+        .fees_total{
+            display: flex;
+            flex-direction: column;
+            font-weight: bold;
+            padding: 0.3em;
+
+            .total{
+                display: flex;
+                justify-content: space-between;
+            } 
+        }
+    }
+}

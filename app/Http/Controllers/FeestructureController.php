@@ -94,8 +94,11 @@ class FeestructureController extends Controller
 
 
     //to view the feesturcure 
-    public function view_feestucture()
+    public function view_feestructure($id)
     {
-        return view('backend.admin.fees.view_feestructure');
+        $feestructure = Feestructure::findOrFail($id);
+        $feestructure->fees_categories = json_decode($feestructure->fees_categories, true);
+
+        return view('backend.admin.fees.view_feestructure', compact('feestructure'));
     }
 }

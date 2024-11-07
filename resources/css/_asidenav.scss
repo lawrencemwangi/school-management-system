@@ -106,7 +106,7 @@ $collapsed_width: 70px;
                 gap: 0.5em; 
                 position: relative;
                 display: inline-block;
-
+                
                 .submenu{
                     display: none;
                     list-style: none;
@@ -118,9 +118,7 @@ $collapsed_width: 70px;
                     border: 1px solid #ccc;
                     border-radius: 4px;
                     min-width: 150px;
-                    z-index: 1; 
-
-
+                    z-index: 1;
                   
                     a{
                         @include anchor;
@@ -181,5 +179,12 @@ $collapsed_width: 70px;
                 }
             }
         }
+    }
+}
+
+
+@media screen and (width <=762px) {
+    .aside_container{
+       
     }
 }

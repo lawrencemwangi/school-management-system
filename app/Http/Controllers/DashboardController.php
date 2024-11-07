@@ -11,6 +11,7 @@ use App\Models\Classes;
 use App\Models\Parents;
 
 
+
 class DashboardController extends Controller
 {
     public function getMenuLinks()
@@ -28,9 +29,8 @@ class DashboardController extends Controller
                 ['icon' => 'fa fa-school', 'route' => 'classes.index', 'label' => 'Classes'],
                 ['icon' => 'fa fa-child',  'route' => 'parents.index', 'label' => 'Parents'],
                 ['icon' => 'fa fa-user-graduate', 'route' => 'students.index', 'label' => 'Students' ],
-                ['icon' => 'fa fa-coins', 'label' => 'finances', 'submenu' => 
+                ['icon' => 'fa fa-university', 'label' => 'Financials', 'submenu' => 
                     [
-                        ['icon' => 'fa fa-coins',  'route' => 'users.index', 'label' => 'Finance'],
                         ['icon' => 'fa fa-coins',  'route' => 'feestructure.index', 'label' => 'Feestructure'],
                     ]
                 ],
@@ -90,7 +90,6 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $userLevel = auth()->user()->user_level;
         $menuItems = $this->getMenuLinks(); 
         $count_students = Student::all()->count();
         $count_teachers = Teacher::all()->count();
@@ -99,7 +98,6 @@ class DashboardController extends Controller
         $count_classes = Classes::all()->count();
 
         return view('backend.dashboard', compact(
-            'userLevel',
             'menuItems',
             'count_students',
             'count_teachers',

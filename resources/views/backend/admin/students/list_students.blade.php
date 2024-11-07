@@ -38,11 +38,11 @@
                                 <i class="fas fa-pencil-alt"></i>
                             </a>
 
-                            <form action="#" method="post">
+                            {{-- <form action="#" method="post">
                                 <a href="#">
                                     <i class="fas fa-trash"></i>
                                 </a>
-                            </form>
+                            </form> --}}
                         </span>
                     </div>
                 @endforeach

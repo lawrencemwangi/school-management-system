@@ -4,7 +4,7 @@
             <p>Welcome <strong>{{ Auth::check() ? Auth::user()->user_level_label : 'Guest'}}</strong> 
                 {{  Auth::user()->first_name}} {{  Auth::user()->last_name}}
             </p>
-            <p>Last Seen:
+            <p>User Status:
                <span class="{{ Auth::user()->onlineDetails == 'Online' ? 'text_success' : 'text_danger' }}">
                    {{ Auth::user()->onlineDetails }}</p>
                 </span>
