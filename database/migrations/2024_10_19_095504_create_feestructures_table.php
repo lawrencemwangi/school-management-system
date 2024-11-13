@@ -15,10 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('academic_year');
             $table->string('term');
-            $table->string('form');
+            $table->unsignedBigInteger('form_id');
             $table->json('fees_categories');
             $table->decimal('total_amount');
             $table->timestamps();
+
+            $table->foreign('form_id')->references('id')->on('forms')->onDelete('cascade');
         });
     }
 

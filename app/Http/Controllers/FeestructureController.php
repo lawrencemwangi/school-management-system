@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Feestructure;
+use App\Models\Form;
 use Illuminate\Http\Request;
 
 class FeestructureController extends Controller
@@ -21,7 +22,8 @@ class FeestructureController extends Controller
      */
     public function create()
     {
-        return view('backend.admin.fees.add_feestructure');
+        $forms = Form::all();
+        return view('backend.admin.fees.add_feestructure',compact('forms'));
     }
 
     /**
@@ -33,6 +35,7 @@ class FeestructureController extends Controller
             'fee_category' => 'required|array',
             'amount' => 'required|array',
             'amount.*' => 'required|numeric|min:1',
+            'form_id' => 'required|string|exists:forms,id',
         ]);
 
         $feeCategories = [];
@@ -46,7 +49,7 @@ class FeestructureController extends Controller
 
         $feestructure =  new Feestructure;
         $feestructure->academic_year = $request->input('academic_year');
-        $feestructure->form = $request->input('class_form');
+        $feestructure->form_id = $validated['form_id'];
         $feestructure->term = $request->input('term');
         $feestructure->fees_categories = json_encode($feeCategories);
         $feestructure->total_amount = array_sum(array_column($feeCategories, 'amount'));

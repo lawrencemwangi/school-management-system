@@ -22,16 +22,16 @@
                     </select>
                 </div>
 
-                
                 <div class="input_group">
-                    <label for="class_form">Form</label>
-                    <select name="class_form" id="class_form">
-                        <option value="">--select class--</option>
-                        <option value="form_1">Form 1</option>
-                        <option value="form_2">Form 2</option>
-                        <option value="form_3">Form 3</option>
-                        <option value="form_4">Form 4</option>
+                    <label for="form_id">Form</label>
+                    <select name="form_id" id="form_id">
+                        <option value="">--select form--</option>
+    
+                        @foreach ($forms as $form)
+                            <option value="{{ $form->id }}" {{ old('form_name') == $forms ? 'selected' : '' }}>{{ $form->form_name }}</option>
+                        @endforeach
                     </select>
+                    <span class="inline_alert">{{ $errors->first('from_id') }}</span>
                 </div>
             </div>
 

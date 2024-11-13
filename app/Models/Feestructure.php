@@ -19,5 +19,10 @@ class Feestructure extends Model
     protected $cast = [
        'fees_categories' => 'array',
     ];
+
+    public function form()
+    {
+        return $this->belongsTo(Form::class);
+    }
 }
 

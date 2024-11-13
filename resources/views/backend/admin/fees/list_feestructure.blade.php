@@ -19,7 +19,7 @@
                         <span class="user-col email">
                             <a href="{{ route('fee_structure', ['id' => $fee->id]) }}">{{ $fee->academic_year }}</a>  
                         </span>
-                        <span class="user-col">{{ $fee->form  }}</span>
+                        <span class="user-col">{{ $fee->form->form_name }}</span>
                         <span class="user-col">{{ $fee->term }}</span>
                         <span class="user-col">{{ $fee->total_amount }}</span>
                         <span class="action">

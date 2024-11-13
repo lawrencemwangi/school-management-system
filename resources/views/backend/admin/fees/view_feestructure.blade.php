@@ -22,7 +22,7 @@
             <div class="fees_infor">
                 <p>Year: <span>{{  $feestructure->academic_year }}</span></p>
                 <p>Term: <span>{{ $feestructure->term }}</span></p>
-                <p>Form: <span>{{ $feestructure->form }}</span></p>
+                <p>Form: <span>{{ $feestructure->form->form_name }}</span></p>
             </div>
             <hr>
             <br>

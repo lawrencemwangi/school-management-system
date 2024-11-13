@@ -2,10 +2,13 @@
     <h1>student Detials</h1>
 
     <div class="student_container">
+        <div class="image_profile">
+            <h3>Student Profile picture</h3>
+            <img src="{{ $students->user->profile_image_url }}" alt="Student Profile Image">
+        </div>
+
         <div class="student_data">
             <div class="student_infor">
-
-            {{-- <img src="{{ $students->user->image }}" alt=""> --}}
                 <p>Student Names: 
                     <span>{{ $students->user->first_name }}</span>
                     <span>{{ $students->user->last_name }}</span>
