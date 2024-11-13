@@ -25,8 +25,13 @@ class DashboardController extends Controller
                 ['icon' => 'fa-solid fa-gauge', 'route' => 'admin_dashboard','label' => 'Dashboard' ],
                 ['icon' => 'fa-solid fa-users', 'route' => 'users.index', 'label' => 'Users' ],
                 ['icon' => 'fa fa-chalkboard-teacher', 'route' => 'teachers.index','label' => 'Teachers'],
-                ['icon' => 'fa fa-bed', 'route' => 'dorms.index', 'label' => 'Dorms'],
-                ['icon' => 'fa fa-school', 'route' => 'classes.index', 'label' => 'Classes'],
+                [ 'icon' => 'fa fa-file-alt', 'label' =>'Facilities' , 'submenu' =>
+                    [
+                        ['icon' => 'fa fa-school', 'route' => 'classes.index', 'label' => 'Classes'],
+                        ['icon' => 'fa fa-bed', 'route' => 'dorms.index', 'label' => 'Dorms'],
+                        ['icon' => 'fa fa-signal', 'route' => 'forms.index', 'label' => 'Forms'],
+                    ],
+                ],
                 ['icon' => 'fa fa-child',  'route' => 'parents.index', 'label' => 'Parents'],
                 ['icon' => 'fa fa-user-graduate', 'route' => 'students.index', 'label' => 'Students' ],
                 ['icon' => 'fa fa-university', 'label' => 'Financials', 'submenu' => 
@@ -96,32 +101,34 @@ class DashboardController extends Controller
         return $menuItems;
     }
 
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        $menuItems = $this->getMenuLinks(); 
-        $count_students = Student::all()->count();
-        $count_teachers = Teacher::all()->count();
-        $count_parents = Parents::all()->count();
-        $count_dorms = Dorm::all()->count();
-        $count_classes = Classes::all()->count();
-
-        return view('backend.dashboard', compact(
-            'menuItems',
-            'count_students',
-            'count_teachers',
-            'count_parents',
-            'count_classes',
-            'count_dorms'
-        ));
-    }
 
     public function show(Request $request)
     {
         $message = session('message', 'No message available.');
         return view('partials.error', compact('message'));
     }
+
+    /**
+    * Display a listing of the resource.
+    */
+    public function index()
+    {
+        $menuItems = $this->getMenuLinks();
+        $count_students = Student::count();
+        $count_teachers = Teacher::count();
+        $count_parents = Parents::count();
+        $count_classes = Classes::count();
+        $count_dorms = Dorm::count();
+
+        return view('backend.dashboard', compact(
+            'menuItems',
+            'count_students', 
+            'count_teachers', 
+            'count_parents', 
+            'count_classes', 
+            'count_dorms',
+        ));
+    }
+        
 }
 

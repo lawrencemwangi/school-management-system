@@ -28,11 +28,13 @@
                         <li>Dashboard</li>
                     @endif
                 @endif
+
+                {{-- <a href="{{ route('login') }}">login</a> --}}
             </li>
 
-            <li><a href="{{ route('about') }}">About</a></li>
-            {{-- <li><a href="#"></a></li> --}}
-            <li><a href="{{  route('contact') }}">Contact</a></li>
+            {{-- <li><a href="{{ route('about') }}">About</a></li>
+            <li><a href="#"></a></li>
+            <li><a href="{{  route('contact') }}">Contact</a></li> --}}
 
             <div class="profile_cotent">
                 @if (Auth::user())

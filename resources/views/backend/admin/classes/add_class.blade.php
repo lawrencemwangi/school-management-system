@@ -5,7 +5,11 @@
        <form action="{{ route('classes.store') }}" method="post">
         @csrf
 
-        <div class="group">
+        <div class="groups">
+            <div class="input_group">
+                
+            </div>
+
             <div class="input_group">
                 <label for="class_name">Class Name</label>
                 <input type="text" name="class_name" id="class_name" value="{{ old('class_name') }}" placeholder="Form 1Alpha">

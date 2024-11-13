@@ -8,20 +8,10 @@ class HomeController extends Controller
 {
     public function HomePage ()
     {
-        return view('home');
+        return view('auth.login');
     }
 
-    public function Admin ()
-    {
-        return view('home');
-    }
-
-    public function About ()
-    {
-        return view('about');
-    }
-
-    public function Contact ()
+    public function Contactpage ()
     {
         return view('contact');
     }

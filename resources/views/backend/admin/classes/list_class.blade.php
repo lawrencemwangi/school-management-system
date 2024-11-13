@@ -17,10 +17,10 @@
                         <span class="user-col">{{ $class->class_name }}</span>
                         <span class="user-col">{{ $class->class_capacity }}</span>
                         <span class="action">
-                            <a href="#">
+                            <a href="{{ route('classes.edit', ['class' => $class]) }}">
                                 <i class="fas fa-pencil-alt"></i>
                             </a>
-                            <form action="#" method="post">
+                            <form action="" method="post">
                                 @csrf
                                 <a href="#">
                                     <i class="fas fa-trash"></i>

@@ -57,9 +57,9 @@ class ClassesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Classes $classes)
+    public function edit(Classes $class)
     {
-        //
+        return view('backend.admin.classes.update_class', compact('class'));
     }
 
     /**
@@ -67,7 +67,19 @@ class ClassesController extends Controller
      */
     public function update(Request $request, Classes $classes)
     {
-        //
+        $validated = $request->validate([
+            'class_name' => 'required|string',
+            'class_capacity' => 'nullable|string',
+        ]);
+
+        $classes->class_name = $validated['class_name'];
+        $classes->class_capacity = $validated['class_capacity'];
+
+        $classes->update();
+        return redirect()->route('classes.index')->with('success', [
+            'message' => 'Class updated successfully',
+            'duration' => $this->alert_message_duration,
+        ]);
     }
 
     /**
@@ -75,6 +87,10 @@ class ClassesController extends Controller
      */
     public function destroy(Classes $classes)
     {
-        //
+        $classes->delete();
+        return redirect()->route('classes.index')->with('success', [
+            'message' => 'class deleted successfully',
+            'duration' => $this->akert_message_duration,
+        ]);
     }
 }

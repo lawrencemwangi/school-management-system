@@ -107,3 +107,36 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
+
+// function for sweet alert when deleting items
+function showConfirmationDialog(message, onConfirm) {
+    Swal.fire({
+        title: "Are you sure?",
+        text: message,
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete!",
+    }).then((result) => {
+        if (result.isConfirmed) {
+            onConfirm();
+        }
+    });
+}
+
+
+function deleteItem(itemId, itemName, url = null) {
+    const message = `This ${itemName} will be deleted permanently!`;
+
+    // Show a confirmation dialog
+    showConfirmationDialog(message, () => {
+        const formId = `deleteForm_${itemId}`;
+        const form = document.getElementById(formId);
+
+        if (form) {
+            form.submit();
+        }
+    });
+}

@@ -28,10 +28,12 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(route('home', absolute: false))->with('success', [
-            'message' => 'login was successful',
-            'duration' =>$this->alert_message_duration,
+        session()->flash('success', [
+            'message' => 'Login was successful!',
+            'duration' => $this->alert_message_duration,
         ]);
+
+        return $this->redirectBasedOnRole(Auth::user());
     }
 
     /**
@@ -47,4 +49,36 @@ class AuthenticatedSessionController extends Controller
 
         return redirect('/');
     }
+
+    protected function authenticated(Request $request, $user)
+    {
+        if (!$user->hasVerifiedEmail()) {
+            Auth::logout();
+            return redirect()->route('verification.notice')
+                ->with('warning', 'You need to verify your email address before accessing the System.');
+        }
+
+        return redirect()->intended($this->redirectPath());
+    }
+
+
+    private function redirectBasedOnRole($user)
+    {        
+        if (!isset($user->user_level)) {
+            return redirect()->route('home');
+        }
+    
+        $role = (int) $user->user_level;
+    
+        return match ($role) {
+            0 => redirect()->route('admin_dashboard'),
+            1 => redirect()->route('admin_dashboard'),
+            2 => redirect()->route('teacher_dashboard'),
+            3 => redirect()->route('accountant_dashboard'),
+            4 => redirect()->route('student_dashboard'),
+            5 => redirect()->route('parent_dashboard'),
+            default => redirect()->route('home'),
+        };
+    }
+    
 }

@@ -59,7 +59,7 @@ class DormController extends Controller
      */
     public function edit(Dorm $dorm)
     {
-        //
+        return view('backend.admin.dorms.update_dorm', compact('dorm'));
     }
 
     /**
@@ -67,7 +67,19 @@ class DormController extends Controller
      */
     public function update(Request $request, Dorm $dorm)
     {
-        //
+        $validated = $request->validate([
+            'dorm_name' => 'required|string|max:255',
+            'dorm_capacity' => 'required|string',
+        ]);
+
+        $dorm->dorm_name = $validated['dorm_name'];
+        $dorm->dorm_capacity = $validated['dorm_capacity'];
+        $dorm->update();
+        
+        return redirect()->route('dorms.index')->with('success',[
+            'message' => 'Dorm added successfully',
+            'duration' => $this->alert_message_duration,
+        ]);
     }
 
     /**
@@ -75,6 +87,11 @@ class DormController extends Controller
      */
     public function destroy(Dorm $dorm)
     {
-        //
+        $dorm->delete();
+        
+        return redirect()->route('dorms.index')->with('success',[
+            'message' => 'Dorm deleted successfully',
+            'duration' => $this->alert_message_duration,
+        ]);
     }
 }

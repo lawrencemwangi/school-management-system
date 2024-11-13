@@ -13,13 +13,12 @@ use App\Http\Controllers\DormController;
 use App\Http\controllers\DisciplineController;
 use App\Http\controllers\AttendanceController;
 use App\Http\controllers\FeestructureController;
+use App\Http\controllers\FormController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', [HomeController::class, 'Homepage'])->name('home');
-Route::get('/admin', [HomeController::class, 'Admin'])->name('admin');
-Route::get('/about', [HomeController::class, 'About'])->name('about');
-Route::get('/contact', [HomeController::class, 'Contact'])->name('contact');
+Route::get('/', [HomeController::class, 'homepage'])->name('home');
+Route::get('/contact', [HomeController::class, 'Contactpage'])->name('contact');
 Route::get('/inactive', [DashboardController::class, 'show'])->name('inactive');
 
 
@@ -41,6 +40,7 @@ Route::middleware('admin','last_seen', 'inactive')->group(function() {
     Route::resource('admin/parents', ParentsController::class);
     Route::resource('admin/classes', ClassesController::class);
     Route::resource('admin/dorms', DormController::class);
+    Route::resource('admin/forms', FormController::class);
     Route::resource('admin/feestructure', FeestructureController::class);
     Route::get('/feestructure/{id}', [FeestructureController::class, 'view_feestructure'])->name('fee_structure');
 });
