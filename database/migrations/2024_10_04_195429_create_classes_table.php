@@ -13,9 +13,12 @@ return new class extends Migration
     {
         Schema::create('classes', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('form_id');
             $table->string('class_name')->unique();
             $table->string('class_capacity');
             $table->timestamps();
+
+            $table->foreign('form_id')->references('id')->on('forms')->onDelete('cascade');
         });
     }
 

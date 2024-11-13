@@ -58,6 +58,20 @@
 
             <div class="groups">
                 <div class="input_group">
+                    <label for="form_id">Form</label>
+                    <select name="form_id" id="form_id">
+                        <option value="">--select form--</option>
+    
+                        @foreach ($forms as $form)
+                            <option value="{{ $form->id }}" {{ old('form_name', $student->form_id) == $form->id ? 'selected' : '' }}>
+                                {{ $form->form_name }}
+                            </option>
+                        @endforeach
+                    </select>
+                    <span class="inline_alert">{{ $errors->first('from_id') }}</span>
+                </div>
+
+                <div class="input_group">
                     <label for="class_id">Classes</label>
                     <select name="class_id" id="class_id">
                         <option value="">--Select class--</option>
@@ -80,7 +94,9 @@
                         @endforeach
                     </select>
                 </div>
+            </div>
 
+            <div class="group">
                 <div class="input_group">
                     <label for="graduation_status"> Graduation Status:-</label>
                     <div class="custom_radio_buttons">
@@ -96,9 +112,7 @@
                     </div>
                     <span class="inline_alert">{{ $errors->first(' graduation_status ') }}</span>
                 </div>
-            </div>
-
-            <div class="group">
+                
                 <div class="input_group">
                     <label for="user_level">User Level:-</label>
                     <div class="custom_radio_buttons">

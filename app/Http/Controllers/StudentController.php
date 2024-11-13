@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Parents;
 use App\Models\Classes;
 use App\Models\Dorm;
+use App\Models\Form;
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
@@ -29,8 +30,9 @@ class StudentController extends Controller
         $parents = Parents::all();
         $classes = Classes::all();
         $dorms = Dorm::all();
+        $forms = Form::all();
         return view('backend.admin.students.add_student', 
-        compact('users','parents','classes','dorms'));
+        compact('users','parents','classes','dorms', 'forms'));
     }
 
     /**
@@ -45,6 +47,7 @@ class StudentController extends Controller
             'user_id' => 'required|string|exists:users,id',
             'parent_id' => 'required|string|exists:parents,id',
             'dorm_id' => 'required|string|exists:dorms,id',
+            'form_id' => 'required|string|exists:forms,id',
             'class_id' => 'required|string|exists:classes,id',
             'graduation_date' => 'required|date',
             'graduation_status' => 'required|in:0,1',
@@ -65,6 +68,7 @@ class StudentController extends Controller
         $student->dob = $validated['dob'];
         $student->parent_id = $validated['parent_id'];
         $student->dorm_id = $validated['dorm_id'];
+        $student->form_id = $validated['form_id'];
         $student->class_id = $validated['class_id'];
         $student->graduation_date = $validated['graduation_date'];
         $student->graduation_status = $validated['graduation_status'];
@@ -95,8 +99,9 @@ class StudentController extends Controller
         $parents = Parents::all();
         $classes = Classes::all();
         $dorms = Dorm::all();
+        $forms = Form::all();
         return view('backend.admin.students.update_student',
-         compact('student','users','parents','classes','dorms'));
+         compact('student','users','parents','classes','dorms','forms'));
     }
 
     /**
@@ -111,6 +116,7 @@ class StudentController extends Controller
             'user_id' => 'required|string|exists:users,id',
             'parent_id' => 'required|string|exists:parents,id',
             'dorm_id' => 'required|string|exists:dorms,id',
+            'form_id' => 'required|string|exists:forms,id',
             'class_id' => 'required|string|exists:classes,id',
             'graduation_date' => 'required|date',
             'graduation_status' => 'required|in:0,1',
@@ -130,7 +136,8 @@ class StudentController extends Controller
         $student->dob = $validated['dob'];
         $student->parent_id = $validated['parent_id'];
         $student->dorm_id = $validated['dorm_id'];
-        $student->class_id = $validated['class_id'];
+        $student->dorm_id = $validated['dorm_id'];
+        $student->form_id = $validated['form_id'];
         $student->graduation_date = $validated['graduation_date'];
         $student->graduation_status = $validated['graduation_status'];
 

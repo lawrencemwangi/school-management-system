@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Classes;
+use App\Models\Form;
 use Illuminate\Http\Request;
 
 class ClassesController extends Controller
@@ -21,7 +22,8 @@ class ClassesController extends Controller
      */
     public function create()
     {
-        return view('backend.admin.classes.add_class');
+        $forms = Form::all();
+        return view('backend.admin.classes.add_class', compact('forms'));
     }
 
     /**
@@ -32,10 +34,12 @@ class ClassesController extends Controller
         $validated = $request->validate([
             'class_name' => 'required|string|max:255',
             'class_capacity' => 'required|string',
+            'form_id' => 'required|string|exists:forms,id',
         ]);
 
         $classes = new Classes;
         $classes->class_name = $validated['class_name'];
+        $classes->form_id = $validated['form_id'];
         $classes->class_capacity = $validated['class_capacity'];
         
         $classes->save();
@@ -59,7 +63,8 @@ class ClassesController extends Controller
      */
     public function edit(Classes $class)
     {
-        return view('backend.admin.classes.update_class', compact('class'));
+        $forms = Form::all();
+        return view('backend.admin.classes.update_class', compact('class', 'forms'));
     }
 
     /**
@@ -70,9 +75,11 @@ class ClassesController extends Controller
         $validated = $request->validate([
             'class_name' => 'required|string',
             'class_capacity' => 'nullable|string',
+            'form_id' => 'required|string|exists:forms,id',
         ]);
 
         $classes->class_name = $validated['class_name'];
+        $classes->form_id = $validated['from_id'];
         $classes->class_capacity = $validated['class_capacity'];
 
         $classes->update();

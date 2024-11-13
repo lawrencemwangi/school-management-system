@@ -12,4 +12,9 @@ class Classes extends Model
     protected $fillable = [
         'class_name',
     ];
+
+    public function form()
+    {
+        return $this->belongsTo(Form::class);
+    }
 }

@@ -4,6 +4,7 @@
     <div class="class_container user_container">
         <div class="user_content">
             <div class="user_details">
+                <span  class="user-col">Form</span>
                 <span  class="user-col">Class Names</span>
                 <span  class="user-col">Class Capacity</span>
                 <span class="user-col">Action</span>
@@ -14,6 +15,7 @@
             @else
                 @foreach ($classes as $class)
                     <div class="user_infor">
+                        <span class="user-col">{{ $class->form->form_name }}</span>
                         <span class="user-col">{{ $class->class_name }}</span>
                         <span class="user-col">{{ $class->class_capacity }}</span>
                         <span class="action">

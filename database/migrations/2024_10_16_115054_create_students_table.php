@@ -19,6 +19,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('parent_id');
             $table->unsignedBigInteger('dorm_id');
+            $table->unsignedBigInteger('form_id');
             $table->unsignedBigInteger('class_id');
             $table->date('graduation_date');
             $table->unsignedtinyinteger('graduation_status')->default(0);
@@ -28,6 +29,7 @@ return new class extends Migration
             $table->foreign('parent_id')->references('id')->on('parents')->onDelete('cascade');
             $table->foreign('dorm_id')->references('id')->on('dorms')->onDelete('cascade');
             $table->foreign('class_id')->references('id')->on('classes')->onDelete('cascade');
+            $table->foreign('form_id')->references('id')->on('forms')->onDelete('cascade');
         });
     }
 

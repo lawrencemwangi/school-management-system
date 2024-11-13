@@ -7,7 +7,15 @@
 
         <div class="groups">
             <div class="input_group">
-                
+                <label for="form_id">Form</label>
+                <select name="form_id" id="form_id">
+                    <option value="">--select form--</option>
+
+                    @foreach ($forms as $form)
+                        <option value="{{ $form->id }}" {{ old('form_id') == $forms ? 'selected' : '' }}>{{ $form->form_name }}</option>
+                    @endforeach
+                </select>
+                <span class="inline_alert">{{ $errors->first('form_id') }}</span>
             </div>
 
             <div class="input_group">
