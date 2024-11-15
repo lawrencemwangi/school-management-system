@@ -14,6 +14,7 @@ use App\Http\controllers\DisciplineController;
 use App\Http\controllers\AttendanceController;
 use App\Http\controllers\FeestructureController;
 use App\Http\controllers\FormController;
+use App\Http\controllers\SubjectController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -43,6 +44,7 @@ Route::middleware('admin','last_seen', 'inactive')->group(function() {
     Route::resource('admin/forms', FormController::class);
     Route::resource('admin/feestructure', FeestructureController::class);
     Route::get('/feestructure/{id}', [FeestructureController::class, 'view_feestructure'])->name('fee_structure');
+    Route::resource('/admin/subject', SubjectController::class);
 });
 
 
@@ -67,7 +69,7 @@ Route::middleware('accountant','last_seen', 'inactive')->group(function() {
 Route::middleware('student','last_seen', 'inactive')->group(function() {
     Route::get('/student/dashboard' , [DashboardController::class, 'index'])->name('student_dashboard');
     Route::get('/student/details', [StudentController::class, 'show_details'])->name('student_details');
-
+    Route::get('student/feestructure', [StudentController::class, 'Viewfeestructure'])->name('view_feestructure');
 });
 
 

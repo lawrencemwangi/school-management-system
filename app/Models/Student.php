@@ -22,6 +22,10 @@ class Student extends Model
         'user_level'
     ];
 
+    protected $cast = [
+        'fees_categories' => 'array',
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);

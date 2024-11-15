@@ -25,14 +25,20 @@ class DashboardController extends Controller
                 ['icon' => 'fa-solid fa-gauge', 'route' => 'admin_dashboard','label' => 'Dashboard' ],
                 ['icon' => 'fa-solid fa-users', 'route' => 'users.index', 'label' => 'Users' ],
                 ['icon' => 'fa fa-chalkboard-teacher', 'route' => 'teachers.index','label' => 'Teachers'],
-                [ 'icon' => 'fa fa-file-alt', 'label' =>'Facilities' , 'submenu' =>
+                [ 'icon' => 'fa fa-file-alt', 'label' =>'Resources' , 'submenu' =>
                     [
                         ['icon' => 'fa fa-school', 'route' => 'classes.index', 'label' => 'Classes'],
                         ['icon' => 'fa fa-bed', 'route' => 'dorms.index', 'label' => 'Dorms'],
-                        ['icon' => 'fa fa-signal', 'route' => 'forms.index', 'label' => 'Forms'],
+                        ['icon' => 'fas fa-list-ol', 'route' => 'forms.index', 'label' => 'Forms'],
                     ],
                 ],
-                ['icon' => 'fa fa-child',  'route' => 'parents.index', 'label' => 'Parents'],
+                ['icon' => 'fas fa-clipboard-check', 'label' => 'Academics', 'submenu' =>
+                    [
+                        ['icon' => 'fa fa-book', 'route' => 'subject.index', 'label' => 'Subjects'],
+                        ['icon' => 'fas fa-chart-bar', 'route' => 'forms.index', 'label' => 'Grades'],
+                    ]
+                ],
+                ['icon' => 'fas fa-user-friends',  'route' => 'parents.index', 'label' => 'Parents'],
                 ['icon' => 'fa fa-user-graduate', 'route' => 'students.index', 'label' => 'Students' ],
                 ['icon' => 'fa fa-university', 'label' => 'Financials', 'submenu' => 
                     [
@@ -81,7 +87,7 @@ class DashboardController extends Controller
                 ['icon' => 'fa fa-chart-line', 'route' => 'student_dashboard', 'label' => 'Reports' ],
                 ['icon' => 'fa fa-receipt', 'label' => 'Financials', 'submenu' =>
                     [
-                        ['icon' => 'fa fa-coins', 'route' => 'student_dashboard' ,'label' => 'Fee structure'],
+                        ['icon' => 'fa fa-coins', 'route' => 'view_feestructure' ,'label' => 'Fee structure'],
                         ['icon' => 'fa fa-receipt', 'route' => 'student_dashboard' ,'label' => 'Fee statement'],
                     ]
                 ],

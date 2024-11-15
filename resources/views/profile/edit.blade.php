@@ -1,5 +1,4 @@
-<x-app-layout>
-    @include('partials.navbar')
+<x-admin-layout>
     <div class="profile_container container">
         <h1>Profile Information</h1>
 
@@ -123,4 +122,4 @@
             </form>
         </div>
     </div>
-</x-app-layout>
+</x-admin-layout>
