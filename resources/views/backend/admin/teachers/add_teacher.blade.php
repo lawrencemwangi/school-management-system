@@ -15,17 +15,36 @@
                         @endforeach
                     </select>
                 </div>
-    
+
                 <div class="input_group">
                     <label for="emp_code">Employee Code</label>
-                    <input type="text" name="emp_code" id="emp_code" value="{{ old('emp_code' )}}">
+                    <input type="text" name="emp_code" id="emp_code" value="{{ old('emp_code' )}}" placeholder="Employee code">
                     <span class="inline_alert">{{ $errors->first('emp_code') }}</span>
                 </div>
-    
+
+                <div class="input_group">
+                    <label for="class_teacher">Class Teacher</label>
+                    <select name="class_teacher" id="class_teacher">
+                        <option value="">--Select the Class--</option>
+                        @foreach ($classes as $class)
+                            <option value="{{ $class->id }}" {{ old('class_teacher') == $class ? 'selected' : '' }}>
+                                {{ $class->class_name }}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+
+            <div class="group">
                 <div class="input_group">
                     <label for="emp_date">Employee Date (Date of Employment)</label>
                     <input type="date" name="emp_date" id="emp_date" value="{{ old('emp_date')}}">
                     <span class="inline_alert">{{ $errors->first('emp_date') }}</span>
+                </div>
+
+                <div class="input_group">
+                    <label for="subject_id">Subjects</label>
+                    
                 </div>
             </div>
 

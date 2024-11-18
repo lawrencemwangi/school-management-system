@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Feestructure;
 use App\Models\Form;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FeestructureController extends Controller
 {
@@ -103,5 +104,29 @@ class FeestructureController extends Controller
         $feestructure->fees_categories = json_decode($feestructure->fees_categories, true);
 
         return view('backend.admin.fees.view_feestructure', compact('feestructure'));
+    }
+
+    public function Viewfeestructure()
+    {
+        // if (auth()->user()->form_id != $formId) {
+        //     return redirect()->back()->with('error',[
+        //         'message' => 'You are not authorized to access this fee structure.',
+        //         'duration' => $this->alert_message_duration,
+        //     ]);
+        // }
+
+        $feeData = Feestructure::all();
+
+        if ($feeData->isEmpty()) {
+            return redirect()->back()->with('error', [
+                'message' => 'No fee structure found for your form.',
+                'duration' => $this->alert_message_duration,
+            ]);
+        }
+        // $feeData->fees_categories = json_decode($feeData->fees_categories, true);
+
+        // dd($feeData);
+
+        return view('backend.student.financials.feestructure',compact('feeData'));
     }
 }

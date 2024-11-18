@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Teacher;
 use App\Models\User;
+use App\Models\Subject;
+use App\Models\Classes;
 use Illuminate\Http\Request;
 
 class TeacherController extends Controller
@@ -23,7 +25,9 @@ class TeacherController extends Controller
     public function create()
     {
         $users = User::all();
-        return  view('backend.admin.teachers.add_teacher', compact('users'));
+        $subjects = Subject::all();
+        $classes = Classes::all();
+        return  view('backend.admin.teachers.add_teacher', compact('users','subjects','classes'));
        
     }
 

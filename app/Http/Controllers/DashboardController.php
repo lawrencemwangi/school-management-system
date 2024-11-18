@@ -25,6 +25,8 @@ class DashboardController extends Controller
                 ['icon' => 'fa-solid fa-gauge', 'route' => 'admin_dashboard','label' => 'Dashboard' ],
                 ['icon' => 'fa-solid fa-users', 'route' => 'users.index', 'label' => 'Users' ],
                 ['icon' => 'fa fa-chalkboard-teacher', 'route' => 'teachers.index','label' => 'Teachers'],
+                ['icon' => 'fas fa-user-friends',  'route' => 'parents.index', 'label' => 'Parents'],
+                ['icon' => 'fa fa-user-graduate', 'route' => 'students.index', 'label' => 'Students' ],
                 [ 'icon' => 'fa fa-file-alt', 'label' =>'Resources' , 'submenu' =>
                     [
                         ['icon' => 'fa fa-school', 'route' => 'classes.index', 'label' => 'Classes'],
@@ -35,11 +37,9 @@ class DashboardController extends Controller
                 ['icon' => 'fas fa-clipboard-check', 'label' => 'Academics', 'submenu' =>
                     [
                         ['icon' => 'fa fa-book', 'route' => 'subject.index', 'label' => 'Subjects'],
-                        ['icon' => 'fas fa-chart-bar', 'route' => 'forms.index', 'label' => 'Grades'],
+                        ['icon' => 'fas fa-chart-bar', 'route' => 'grade.index', 'label' => 'Grades'],
                     ]
                 ],
-                ['icon' => 'fas fa-user-friends',  'route' => 'parents.index', 'label' => 'Parents'],
-                ['icon' => 'fa fa-user-graduate', 'route' => 'students.index', 'label' => 'Students' ],
                 ['icon' => 'fa fa-university', 'label' => 'Financials', 'submenu' => 
                     [
                         ['icon' => 'fa fa-coins',  'route' => 'feestructure.index', 'label' => 'Feestructure'],
@@ -100,7 +100,6 @@ class DashboardController extends Controller
                 ['icon' => 'fa fa-phone-alt', 'route' => 'parent_dashboard', 'label' => 'Contact'],
                 ['icon' => 'fa fa-coins', 'route' => 'parent_dashboard', 'label' => 'Fees'],
                 ['icon' => 'fa fa-chart-line', 'route' => 'parent_dashboard', 'label' => 'Report'],
-
             ];
         }
     

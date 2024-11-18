@@ -175,22 +175,4 @@ class StudentController extends Controller
         $students = Student::with('parent.user')->firstOrFail();
         return view('backend.student.view_details',compact('students'));
     }
-
-    public function Viewfeestructure()
-    {
-        $student = Auth::user();
-
-        $feeData =Feestructure::where('form_id' ,$student->form_id)
-            ->get();
-        // $feeData->fees_categories = json_decode($feeData, true);
-        // // $feeData->map(function ($fee) {
-        // //     // Decode the 'fee_categories' JSON field
-        // //     $fee->fee_categories = json_decode($fee->fee_categories, true);
-        // //     return $fee;  // Return the modified fee item
-        // // });
-        // Log::info('Fee Structures:', ['feedata' => $feeData]);
-
-        // dd($feeData); 
-        return view('backend.student.financials.feestructure',compact('student', 'feeData'));
-    }
 }

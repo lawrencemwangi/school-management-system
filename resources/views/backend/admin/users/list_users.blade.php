@@ -29,7 +29,9 @@
                         <span class="{{ $user->status == 1 ? 'text_success' : 'text_danger' }} user-col">
                             {{ $user->status == 1 ? 'Active' : 'Inactive' }}
                         </span>
-                        <span class="user-col text_success">{{ $user->last_seen ? \Carbon\Carbon::parse($user->last_seen)->format(' H:i D-m-Y ') : 'Never' }}</span>
+                        <span class="user-col {{ $user->onlineDetails['class'] }}">
+                            {{ $user->onlineDetails['status'] }}
+                        </span>
                         <span class="action">
                             <a href="{{ route('users.edit',['user' => $user]) }}">
                                 <i class="fas fa-pencil-alt"></i>

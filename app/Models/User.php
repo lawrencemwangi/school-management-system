@@ -72,6 +72,7 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
 
+    // The relationship between the models
     public function parent()
     {
         return $this->belongsTo(Parent::class);
@@ -91,13 +92,19 @@ class User extends Authenticatable implements MustVerifyEmail
     //to check if the User is online or Offline
     public function getOnlineDetailsAttribute()
     {
-        if ($this->last_seen && $this->last_seen->diffInMinutes(Carbon::now()) < 5) {
-            return 'Online';
+        if ($this->last_seen) {
+            if ($this->last_seen->diffInMinutes(Carbon::now()) < 5) {
+                return ['status' => 'Online', 'class' => 'text_success'];
+            }
+            return [
+                'status' => $this->last_seen->diffForHumans(),
+                'class' => 'text_success'
+            ];
         }
-
-        return 'Last seen: ' . $this->last_seen->diffForHumans();
+        return ['status' => 'Offline', 'class' => 'text_danger'];
     }
 
+    //Accessing the user profile picture
     public function getImageUrl()
     {
         if($this->image && Storage::disk('public')->exists('users/' . $this->image)){

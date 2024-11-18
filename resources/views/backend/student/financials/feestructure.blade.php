@@ -19,41 +19,44 @@
             <hr>
 
             <div class="fees_content">
-                @foreach ($feeData as $fee)
-                    <div class="fees_infor">
-                        <p>Year: <span>{{  $fee['academic_year'] }}</span></p>
-                        <p>Term: <span>{{ $fee['term'] }}</span></p>
-                        <p>Form: <span>{{ $fee['form_id'] }}</span></p>
-                    </div>
-                @endforeach
+                {{-- @foreach ($feeData as $fee) --}}
+                    {{-- <div class="fees_infor">
+                        <p>Year: <span>{{ $feeData->academic_year }}</span></p>
+                        <p>Term: <span>{{ $feeData->term }}</span></p>
+                        <p>Form: <span>{{ $feeData->form->form_name }}</span></p>
+                    </div> --}}
+                {{-- @endforeach --}}
                 <hr>
                 <br>
                 <div class="fees_details">
-                    <div class="fees_title">
-                        <span>Account</span>
-                        <span>Amount(KES)</span>
-                    </div>
+                    @if (!empty($feeData->fees_categories))
+                        <div class="fees_title">
+                            <span>Account</span>
+                            <span>Amount(KES)</span>
+                        </div>
 
                         <div class="fees_items">
-                            @foreach($feeData as $fee)
+                            @foreach($feeData->fees_categories as $fee)
                                 <div class="fees_item">
-                                    <span class="category_name">{{ $fee['category'] }}</span>
-                                    <span class="category_amount">{{ $fee['amount'] }}</span>
+                                    <span class="category_name">{{ $fee->category }}</span>
+                                    <span class="category_amount">{{  $fee->amount }}</span>
                                 </div>
                             @endforeach
                         </div>  
-                
-
+                    @else
+                        <p>No fee categories available for this form.</p>
+                    @endif
+    
                     <div class="fees_total">
                         <div class="total ">
                             <p>Total Amout</p>
-                            <p>{{ $fee['total_amount'] }}</p>
+                            <p></p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     @else
-        <p>No fee categories available.</p>
+        <p>No fee Structure available.</p>
     @endif
 </x-admin-layout>
