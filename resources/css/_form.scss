@@ -49,6 +49,17 @@ form{
                 font-size: 1.1em;
                 font-weight: 550;
             }
+            .subject-list {
+                display: flex;
+                flex-wrap: wrap; 
+                gap: 10px;
+
+                .subject-item {
+                    display: flex;
+                    align-items: center;
+                    gap: 5px; 
+                }
+            }
 
             .custom_radio_buttons {
                 display: flex;

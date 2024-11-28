@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
             [
                 'first_name' => 'Admin',
                 'last_name' => 'Administrator',
-                'phone_number' => '+254799509242',
+                'phone_number' => '0799509242',
                 'username' => 'mwas',
                 'email' => 'admin@gmail.com',
                 'status' => 1,

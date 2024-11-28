@@ -1,12 +1,17 @@
 <x-admin-layout>
     <div class="admin_container">
         <div class="lastseen_details">
-            <p>Welcome <strong>{{ Auth::check() ? Auth::user()->user_level_label : 'Guest'}}</strong> 
+            <p>Welcome <strong>{{ Auth::check() ? Auth::user()->user_level_label : 'Guest'}}</strong>
+                {{-- @dd(Auth::user()->user_level_label, Auth::user()->first_name, Auth::user()->last_name, Auth::user()->onlineDetails) --}}
+ 
                 {{  Auth::user()->first_name}} {{  Auth::user()->last_name}}
             </p>
             <p>User Status:
-               <span class="{{ Auth::user()->onlineDetails == 'Online' ? 'text_success' : 'text_danger' }}">
-                   {{ Auth::user()->onlineDetails }}</p>
+                @php
+                    $onlineDetails = Auth::user()->onlineDetails;
+                @endphp
+                <span class="{{ $onlineDetails['class'] }}">
+                    {{ $onlineDetails['status'] }}
                 </span>
             </p>
         </div>

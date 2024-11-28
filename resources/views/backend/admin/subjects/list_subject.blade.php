@@ -1,5 +1,6 @@
 <x-admin-layout>
     <x-header title="Subjects" addLink="{{ route('subject.create') }}" />
+    <p>There are <strong>{{ $count_subjects }}</strong> subjects in the system</p>
 
     <div class="subject_container user_container">
         <div class="user_content">

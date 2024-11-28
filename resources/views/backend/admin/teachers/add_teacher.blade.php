@@ -5,7 +5,7 @@
         <form action="{{ route('teachers.store') }}" method="post">
             @csrf
     
-            <div class="groups">
+            <div class="group">
                 <div class="input_group">
                     <label for="User_id">User</label>
                     <select name="user_id" id="user_id">
@@ -21,6 +21,14 @@
                     <input type="text" name="emp_code" id="emp_code" value="{{ old('emp_code' )}}" placeholder="Employee code">
                     <span class="inline_alert">{{ $errors->first('emp_code') }}</span>
                 </div>
+            </div>
+
+            <div class="group">
+                <div class="input_group">
+                    <label for="emp_date">Employee Date (Date of Employment)</label>
+                    <input type="date" name="emp_date" id="emp_date" value="{{ old('emp_date')}}">
+                    <span class="inline_alert">{{ $errors->first('emp_date') }}</span>
+                </div>
 
                 <div class="input_group">
                     <label for="class_teacher">Class Teacher</label>
@@ -35,19 +43,18 @@
                 </div>
             </div>
 
-            <div class="group">
-                <div class="input_group">
-                    <label for="emp_date">Employee Date (Date of Employment)</label>
-                    <input type="date" name="emp_date" id="emp_date" value="{{ old('emp_date')}}">
-                    <span class="inline_alert">{{ $errors->first('emp_date') }}</span>
-                </div>
-
-                <div class="input_group">
-                    <label for="subject_id">Subjects</label>
-                    
+            <div class="input_group subjects">
+                <label for="subject_id">Select Subjects</label>
+                <div class="subject-list">
+                    @foreach ($subjects as $subject)
+                        <div class="subject-item">
+                            <input type="checkbox" name="subject_id[]" id="subject_{{ $subject->id }}" value="{{ $subject->id }}">
+                            <label for="subject_{{ $subject->id }}">{{ $subject->subject_name }}</label>
+                        </div>
+                    @endforeach
                 </div>
             </div>
-
+        
             <div class="group">
                 <div class="input_group">
                     <label for="status">Status:-</label>

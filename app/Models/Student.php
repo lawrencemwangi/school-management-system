@@ -19,7 +19,8 @@ class Student extends Model
         'graduation_date',
         'registration_number',
         'graduation_status',
-        'user_level'
+        'user_level',
+        'form_id'
     ];
 
     protected $cast = [

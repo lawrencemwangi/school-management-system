@@ -74,15 +74,15 @@ class ClassesController extends Controller
     {
         $validated = $request->validate([
             'class_name' => 'required|string',
-            'class_capacity' => 'nullable|string',
             'form_id' => 'required|string|exists:forms,id',
+            'class_capacity' => 'required|string',
         ]);
 
         $classes->class_name = $validated['class_name'];
-        $classes->form_id = $validated['from_id'];
+        $classes->form_id = $validated['form_id'];
         $classes->class_capacity = $validated['class_capacity'];
-
         $classes->update();
+    
         return redirect()->route('classes.index')->with('success', [
             'message' => 'Class updated successfully',
             'duration' => $this->alert_message_duration,
@@ -97,7 +97,7 @@ class ClassesController extends Controller
         $classes->delete();
         return redirect()->route('classes.index')->with('success', [
             'message' => 'class deleted successfully',
-            'duration' => $this->akert_message_duration,
+            'duration' => $this->alert_message_duration,
         ]);
     }
 }

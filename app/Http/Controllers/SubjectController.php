@@ -12,8 +12,9 @@ class SubjectController extends Controller
      */
     public function index()
     {
+        $count_subjects = Subject::count();
         $subjects = Subject::all();
-        return view('backend.admin.subjects.list_subject', compact('subjects'));
+        return view('backend.admin.subjects.list_subject', compact('subjects','count_subjects'));
     }
 
     /**

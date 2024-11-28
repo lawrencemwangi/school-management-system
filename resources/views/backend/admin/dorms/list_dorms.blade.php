@@ -17,14 +17,15 @@
                         <span class="user-col">{{ $dorm->dorm_name }}</span>
                         <span class="user-col">{{ $dorm->dorm_capacity }}</span>
                         <span class="action">
-                            <a href="#">
+                            <a href="{{ route('dorms.edit', ['dorm' => $dorm]) }}">
                                 <i class="fas fa-pencil-alt"></i>
                             </a>
-    
-                            <form action="#" method="post">
+                            <form  id="deleteForm_{{ $dorm->id }}" action="{{ route('dorms.destroy', ['dorm' => $dorm->id]) }}" method="post">
                                 @csrf
-                                <a href="#">
-                                    <i class="fas fa-trash"></i>  
+                                @method("DELETE")
+
+                                <a href="javascript:void(0)" onclick="deleteItem({{ $dorm->id }},'dorms');" >
+                                    <i class="fas fa-trash-alt"></i>
                                 </a>
                             </form>
                         </span>

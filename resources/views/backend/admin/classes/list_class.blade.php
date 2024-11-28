@@ -22,10 +22,12 @@
                             <a href="{{ route('classes.edit', ['class' => $class]) }}">
                                 <i class="fas fa-pencil-alt"></i>
                             </a>
-                            <form action="" method="post">
+                            <form  id="deleteForm_{{ $class->id }}" action="{{ route('classes.destroy', ['class' => $class->id]) }}" method="post">
                                 @csrf
-                                <a href="#">
-                                    <i class="fas fa-trash"></i>
+                                @method("DELETE")
+
+                                <a href="javascript:void(0)" onclick="deleteItem({{ $class->id }},'classes');" >
+                                    <i class="fas fa-trash-alt"></i>
                                 </a>
                             </form>
                         </span>
