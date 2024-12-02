@@ -12,7 +12,8 @@ class GradeController extends Controller
      */
     public function index()
     {
-        return view('backend.admin.grades.list_grade');
+        $grades = Grade::all();
+        return view('backend.admin.grades.list_grade', compact('grades'));
     }
 
     /**
@@ -28,7 +29,20 @@ class GradeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'grade_name' => 'required|string',
+            'grade_point' => 'required|numeric',
+            'max_score' => 'required|numeric',
+            'min_score' => 'required|numeric',
+        ]);
+
+        $grades = new Grade($validated); 
+        $grades->save();
+
+        return redirect()->route('grade.index')->with('success', [
+            'message' => 'Grade added successfully',
+            'duration' => $this->alert_message_duration,
+        ]);
     }
 
     /**
@@ -44,7 +58,7 @@ class GradeController extends Controller
      */
     public function edit(Grade $grade)
     {
-        //
+        return view('backend.admin.grades.update_grade', compact('grade'));
     }
 
     /**
@@ -52,7 +66,19 @@ class GradeController extends Controller
      */
     public function update(Request $request, Grade $grade)
     {
-        //
+        $validated = $request->validate([
+            'grade_name' => 'required|string',
+            'grade_point' => 'required|numeric',
+            'max_score' => 'required|numeric',
+            'min_score' => 'required|numeric',
+        ]);
+
+        $grade->update($validated);
+
+        return redirect()->route('grade.index')->with('success', [
+            'message' => 'Grade updated successfully',
+            'duration' => $this->alert_message_duration,
+        ]);
     }
 
     /**
@@ -60,6 +86,11 @@ class GradeController extends Controller
      */
     public function destroy(Grade $grade)
     {
-        //
+        $grade->delete();
+
+        return redirect()->route('grade.index')->with('success', [
+            'message' => 'Grade delete successfully',
+            'duration' => $this->alert_message_duration,
+        ]);
     }
 }

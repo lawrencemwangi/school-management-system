@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('grades', function (Blueprint $table) {
             $table->id();
+            $table->string('grade_name')->unique();
+            $table->string('grade_point');
+            $table->integer('min_score');
+            $table->integer('max_score');
             $table->timestamps();
         });
     }

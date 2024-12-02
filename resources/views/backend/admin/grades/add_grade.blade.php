@@ -3,13 +3,37 @@
     <h1>Add Grade</h1>
 
     <div class="custom_form">
-        <form action="#" method="post">
+        <form action="{{ route('grade.store') }}" method="post">
             @csrf
 
             <div class="group">
-                
+                <div class="input_group">
+                    <label for="grade_name">Grade Name</label>
+                    <input type="text" name="grade_name" id="grade_name" value="{{ old('grade_name') }}" placeholder="Eg. A">
+                    <span class="inline_alert">{{ $errors->first('grade_name') }}</span>
+                </div>
+
+                <div class="input_group">
+                    <label for="grade_point">Grade Points</label>
+                    <input type="text" name="grade_point" id="grade_point" value="{{ old('grade_point') }}" placeholder="A has 12 Points">
+                    <span class="inline_alert">{{ $errors->first('grade_point') }}</span>
+                </div>
             </div>
-            
+
+            <div class="group">
+                <div class="input_group">
+                    <label for="min_score">Minimum Score</label>
+                    <input type="number" name="min_score" id="min_score" value="{{ old('min_score') }}" placeholder="Enter minimum Score">
+                    <span class="inline_alert">{{ $errors->first('min_score') }}</span>
+                </div>
+
+                <div class="input_group">
+                    <label for="max_score">Maximum Score</label>
+                    <input type="number" name="max_score" id="max_score" value="{{ old('max_score') }}" placeholder="Enter maximum Score">
+                    <span class="inline_alert">{{ $errors->first('max_score') }}</span>
+                </div>
+            </div>
+            <button type="submit">Add New</button>
         </form>
     </div>
  </div>
