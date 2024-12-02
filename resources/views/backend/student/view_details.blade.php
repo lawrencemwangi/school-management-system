@@ -6,6 +6,8 @@
             <h3>Student Profile picture</h3>
             <img src="{{ $students->user->profile_image_url }}" alt="Student Profile Image">
         </div>
+        <br>
+        <hr>
 
         <div class="student_data">
             <div class="student_infor">
@@ -73,6 +75,16 @@
                     </span>
                 </p>
             </div>
+        </div>
+        <br>
+        <hr>
+
+        <div class="student_subjeccts">
+            <p>Subjects: 
+                @foreach ($subjects as $subject)
+                    <strong>{{ $subject }}</strong>
+                @endforeach
+            </p>
         </div>
     </div>
 </x-admin-layout>

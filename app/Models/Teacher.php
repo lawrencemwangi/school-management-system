@@ -14,7 +14,13 @@ class Teacher extends Model
         'emp_code',
         'emp_date',
         'user_level',
+        'subjects',
+        'class_id',
         'status',
+    ];
+
+    protected $cast = [
+        'subjects' => 'array',
     ];
 
     public function user()

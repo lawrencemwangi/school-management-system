@@ -8,6 +8,7 @@ use App\Models\Parents;
 use App\Models\Classes;
 use App\Models\Dorm;
 use App\Models\Form;
+use App\Models\Subject;
 use App\Models\Feestructure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -35,8 +36,9 @@ class StudentController extends Controller
         $classes = Classes::all();
         $dorms = Dorm::all();
         $forms = Form::all();
+        $subjects = Subject::all();
         return view('backend.admin.students.add_student', 
-        compact('users','parents','classes','dorms', 'forms'));
+        compact('users','parents','classes','dorms', 'forms', 'subjects'));
     }
 
     /**
@@ -56,6 +58,8 @@ class StudentController extends Controller
             'graduation_date' => 'required|date',
             'graduation_status' => 'required|in:0,1',
             'user_level' => 'required|in:0,1,2,3,4,5',
+            'subjects' => 'required|array',
+            'subjects.*' => 'required|exists:subjects,id',
         ]);
 
         $users = User::find($validated['user_id']);
@@ -76,6 +80,8 @@ class StudentController extends Controller
         $student->class_id = $validated['class_id'];
         $student->graduation_date = $validated['graduation_date'];
         $student->graduation_status = $validated['graduation_status'];
+        $student->subjects = json_encode($validated['subjects']);
+
         $student->save();
 
         return redirect()->route('students.index')->with('success', [
@@ -104,8 +110,10 @@ class StudentController extends Controller
         $classes = Classes::all();
         $dorms = Dorm::all();
         $forms = Form::all();
+        $subjects = Subject::all();
+        $selectedSubjects = json_decode($student->subjects, true) ?? []; 
         return view('backend.admin.students.update_student',
-         compact('student','users','parents','classes','dorms','forms'));
+         compact('student','users','parents','classes','dorms','forms','subjects','selectedSubjects'));
     }
 
     /**
@@ -125,6 +133,8 @@ class StudentController extends Controller
             'graduation_date' => 'required|date',
             'graduation_status' => 'required|in:0,1',
             'user_level' => 'required|in:0,1,2,3,4,5',
+            'subjects' => 'required|array',
+            'subjects.*' => 'required|exists:subjects,id',
         ]);
 
         $users = User::find($validated['user_id']);
@@ -144,6 +154,7 @@ class StudentController extends Controller
         $student->form_id = $validated['form_id'];
         $student->graduation_date = $validated['graduation_date'];
         $student->graduation_status = $validated['graduation_status'];
+        $student->subjects = json_encode($validated['subjects'] ?? []);
 
         $student->update();
 
@@ -173,6 +184,8 @@ class StudentController extends Controller
     public function show_details()
     {
         $students = Student::with('parent.user')->firstOrFail();
-        return view('backend.student.view_details',compact('students'));
+        $subjectIds = json_decode($students->subjects, true) ?? []; 
+        $subjects = Subject::whereIn('id', $subjectIds)->pluck('subject_name')->toArray();       
+        return view('backend.student.view_details',compact('students', 'subjects'));
     }
 }

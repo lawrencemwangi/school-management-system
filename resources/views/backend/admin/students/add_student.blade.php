@@ -92,6 +92,18 @@
                     </select>
                 </div>
             </div>
+
+            <div class="input_group subjects">
+                <label for="subjects">Select Subjects</label>
+                <div class="subject-list">
+                    @foreach ($subjects as $subject)
+                        <div class="subject-item">
+                            <input type="checkbox" name="subjects[]" value="{{ $subject->id }}">{{ $subject->subject_name }}                            {{-- <label for="subjects"></label> --}}
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+
             <div class="group">
                 <div class="input_group">
                     <label for="graduation_status"> Graduation Status:-</label>

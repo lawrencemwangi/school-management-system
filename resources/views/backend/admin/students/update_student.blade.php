@@ -96,6 +96,19 @@
                 </div>
             </div>
 
+            <div class="input_group subjects">
+                <label for="subjects">Select Subjects</label>
+                <div class="subject-list">
+                    @foreach ($subjects as $subject)
+                        <label>
+                            <input type="checkbox" name="subjects[]" value="{{ $subject->id }}" 
+                                {{ in_array($subject->id, $selectedSubjects) ? 'checked' : '' }}>
+                            {{ $subject->subject_name }}
+                        </label><br>
+                    @endforeach
+                </div>
+            </div>
+
             <div class="group">
                 <div class="input_group">
                     <label for="graduation_status"> Graduation Status:-</label>

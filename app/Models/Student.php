@@ -20,7 +20,8 @@ class Student extends Model
         'registration_number',
         'graduation_status',
         'user_level',
-        'form_id'
+        'form_id',
+        'subjects',
     ];
 
     protected $cast = [
@@ -45,5 +46,10 @@ class Student extends Model
     public function class()
     {
         return $this->belongsTo(Classes::class);
+    }
+    
+    public function subject()
+    {
+        return $this->belongsTo(Subject::class);
     }
 }

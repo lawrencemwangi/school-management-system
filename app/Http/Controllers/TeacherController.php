@@ -42,6 +42,9 @@ class TeacherController extends Controller
             'emp_date' => 'required|date',
             'status' => 'required|in:0,1',
             'user_level' => 'required|in:0,1,2,3,4,5',
+            'class_id' => 'required|exists:classes,id',
+            'subjects' => 'required|array',
+            'subjects.*' => 'required|exists:subjects,id',
         ]);
 
         $user = User::find($validated['user_id']);
@@ -52,10 +55,13 @@ class TeacherController extends Controller
             $user->save();
         }
 
-        $teacher = new Teacher;
-        $teacher->user_id = $user->id;
-        $teacher->emp_code = $validated['emp_code'];
-        $teacher->emp_date = $validated['emp_date'];
+        $teacher = new Teacher([
+            'emp_code' => $validated['emp_code'],
+            'emp_date' => $validated['emp_date'],
+            'user_id' => $validated['user_id'],
+            'class_id' => $validated['class_id'],
+            'subjects' => json_encode($validated['subjects']),
+        ]);
 
         $teacher->save();
 

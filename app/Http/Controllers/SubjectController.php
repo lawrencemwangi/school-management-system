@@ -33,6 +33,7 @@ class SubjectController extends Controller
         $validated = $request->validate([
             'subject_name' => 'required|string',
             'subject_code' => 'required|string',
+            
         ]);
 
         $subject = new Subject;

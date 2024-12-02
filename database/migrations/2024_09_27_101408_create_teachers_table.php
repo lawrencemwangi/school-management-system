@@ -15,12 +15,13 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('emp_code')->unique();
             $table->string('emp_date');
-            // $table->unsignedtinyinteger('user_level')->default(4);
-            // $table->unsignedtinyinteger('status')->default(1);
+            $table->unsignedBigInteger('class_id');
+            $table->json('subjects');
             $table->timestamps();
 
             // Adding foreign key constraint
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('class_id')->references('id')->on('classes')->onDelete('cascade');
         });
     }
 

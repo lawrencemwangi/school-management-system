@@ -31,25 +31,25 @@
                 </div>
 
                 <div class="input_group">
-                    <label for="class_teacher">Class Teacher</label>
-                    <select name="class_teacher" id="class_teacher">
+                    <label for="class_id">Class Teacher</label>
+                    <select name="class_id" id="class_id">
                         <option value="">--Select the Class--</option>
                         @foreach ($classes as $class)
-                            <option value="{{ $class->id }}" {{ old('class_teacher') == $class ? 'selected' : '' }}>
+                            <option value="{{ $class->id }}" {{ old('class_id') == $class ? 'selected' : '' }}>
                                 {{ $class->class_name }}
                             </option>
                         @endforeach
                     </select>
+                    <span class="inline_alert">{{ $errors->first('class_id') }}</span>
                 </div>
             </div>
 
             <div class="input_group subjects">
-                <label for="subject_id">Select Subjects</label>
+                <label for="subjects">Select Subjects</label>
                 <div class="subject-list">
                     @foreach ($subjects as $subject)
                         <div class="subject-item">
-                            <input type="checkbox" name="subject_id[]" id="subject_{{ $subject->id }}" value="{{ $subject->id }}">
-                            <label for="subject_{{ $subject->id }}">{{ $subject->subject_name }}</label>
+                            <input type="checkbox" name="subjects[]" value="{{ $subject->id }}">{{ $subject->subject_name }}                            {{-- <label for="subjects"></label> --}}
                         </div>
                     @endforeach
                 </div>
@@ -75,7 +75,7 @@
                 <div class="input_group">
                     <label for="user_level">User Level:-</label>
                     <div class="custom_radio_buttons">
-                        {{-- 1: admin, 2:teacher ,3: accountant, 4:student ,5: parent --}}
+                        {{-- 1: admin, 2:teacher, 3: accountant, 4:student, 5: parent --}}
                         <label>
                             <input class="option_radio" type="radio" name="user_level" id="admin" value="1" {{ old('user_level') == '1' ? 'checked' : '' }}>
                             <span>Admin</span>

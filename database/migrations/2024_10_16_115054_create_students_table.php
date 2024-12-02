@@ -23,6 +23,7 @@ return new class extends Migration
             $table->unsignedBigInteger('class_id');
             $table->date('graduation_date');
             $table->unsignedtinyinteger('graduation_status')->default(0);
+            $table->json('subjects');
             $table->timestamps();
             
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
