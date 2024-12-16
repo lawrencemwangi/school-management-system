@@ -42,7 +42,7 @@ class TeacherController extends Controller
             'emp_date' => 'required|date',
             'status' => 'required|in:0,1',
             'user_level' => 'required|in:0,1,2,3,4,5',
-            'class_id' => 'required|exists:classes,id',
+            'class_id' => 'nullable|exists:classes,id',
             'subjects' => 'required|array',
             'subjects.*' => 'required|exists:subjects,id',
         ]);

@@ -36,7 +36,7 @@ class UserController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'address' => 'required|string|max:255',
             'username' => 'required|string|max:255|unique:users',
-            'phone_number' => 'required|digits_between:10,15',
+            'phone_number' => 'required|digits_between:10,15|unique:users',
             'gender' => 'required|string|max:10',
             'status' => 'required|string',
             'user_level' => 'required|string',

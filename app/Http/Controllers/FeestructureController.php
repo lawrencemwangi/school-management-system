@@ -108,25 +108,12 @@ class FeestructureController extends Controller
 
     public function Viewfeestructure()
     {
-        // if (auth()->user()->form_id != $formId) {
-        //     return redirect()->back()->with('error',[
-        //         'message' => 'You are not authorized to access this fee structure.',
-        //         'duration' => $this->alert_message_duration,
-        //     ]);
-        // }
-
         $feeData = Feestructure::all();
 
-        if ($feeData->isEmpty()) {
-            return redirect()->back()->with('error', [
-                'message' => 'No fee structure found for your form.',
-                'duration' => $this->alert_message_duration,
-            ]);
+        foreach ($feeData as $fee) {
+            $fee->fees_categories = json_decode($fee->fees_categories, true); 
         }
-        // $feeData->fees_categories = json_decode($feeData->fees_categories, true);
-
-        // dd($feeData);
-
+    
         return view('backend.student.financials.feestructure',compact('feeData'));
     }
 }

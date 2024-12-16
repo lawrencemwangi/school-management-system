@@ -174,13 +174,15 @@ class StudentController extends Controller
         //
     }
 
+    //those student inofrmation in the teachers view
     public function show_Student($student)
     {
         $students = Student::with('parent.user')->findOrFail($student);
         return view('backend.teacher.students.view_student',compact('students'));
     }
 
-
+    
+    // Show the students details 
     public function show_details()
     {
         $students = Student::with('parent.user')->firstOrFail();

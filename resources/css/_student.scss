@@ -1,5 +1,9 @@
 .student_container{
-  padding: 0.9em 0;
+    padding: 0.9em 0;
+    
+    h3{
+        text-decoration: underline;
+    }
 
     .image_profile{
         @include flex_center;

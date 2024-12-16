@@ -9,6 +9,7 @@
         <br>
         <hr>
 
+        <h3>Student Information</h3>
         <div class="student_data">
             <div class="student_infor">
                 <p>Student Names: 
@@ -80,6 +81,7 @@
         <hr>
 
         <div class="student_subjeccts">
+            <h3>Student Subjects</h3>
             <p>Subjects: 
                 @foreach ($subjects as $subject)
                     <strong>{{ $subject }}</strong>
