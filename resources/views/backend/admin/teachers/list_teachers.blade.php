@@ -13,8 +13,8 @@
                 <span class="user-col">Action</span>
             </div>
              
-            @if (empty($teachers))
-                <p>No User Found at the moment</p> 
+            @if ($teachers->isEmpty())
+                <p>No Teacher Found at the moment</p> 
             @else
                 @foreach ($teachers as $teacher)
                     <div class="user_infor">
@@ -26,13 +26,16 @@
                         <span class="user-col">{{ $teacher->emp_code}}</span>
                         <span class="user-col">{{ $teacher->emp_date}}</span>
                         <span class="action">
-                            <a href="#">
+                            <a href="{{ route('teachers.edit', ['teacher' => $teacher]) }}">
                                 <i class="fas fa-pencil-alt"></i>
                             </a>
 
-                            <form action="#" method="post">
-                                <a href="#">
-                                    <i class="fas fa-trash"></i>
+                            <form id="deleteForm_{{ $teacher->id }}" action="{{ route('teachers.destroy', ['teacher' => $teacher->id]) }}" method="post">
+                                @csrf
+                                @method("DELETE")
+
+                                <a href="javascript:void(0)" onclick="deleteItem({{  $teacher->id }},'teachers');">
+                                    <i class="fas fa-trash-alt"></i>
                                 </a>
                             </form>
                         </span>

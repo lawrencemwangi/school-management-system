@@ -24,7 +24,7 @@ class Student extends Model
         'subjects',
     ];
 
-    protected $cast = [
+    protected $casts = [
         'fees_categories' => 'array',
     ];
 

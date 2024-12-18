@@ -19,7 +19,7 @@ class Teacher extends Model
         'status',
     ];
 
-    protected $cast = [
+    protected $casts = [
         'subjects' => 'array',
     ];
 
@@ -30,6 +30,11 @@ class Teacher extends Model
 
     public function subject()
     {
-        return $this->BelongsTo(Subject::class);
+        return $this->BelongsToMany(Subject::class);
+    }
+
+    public function class()
+    {
+        return $this->BelongsTo(Classes::class);
     }
 }

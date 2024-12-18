@@ -25,7 +25,7 @@
                     <span class="user-col">{{ config('school_setting.school_vision') }}</span>
                     <span class="user-col">{{ config('school_setting.school_mission') }}</span>
                     <span class="action">
-                        <a href="{{ route('school_settings') }}">
+                        <a href="#">
                             <i class="fas fa-pencil-alt"></i>
                         </a>                        
                     </span>
