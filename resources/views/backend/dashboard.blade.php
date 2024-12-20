@@ -2,10 +2,9 @@
     <div class="admin_container">
         <div class="lastseen_details">
             <p>Welcome <strong>{{ Auth::check() ? Auth::user()->user_level_label : 'Guest'}}</strong>
-                {{-- @dd(Auth::user()->user_level_label, Auth::user()->first_name, Auth::user()->last_name, Auth::user()->onlineDetails) --}}
- 
                 {{  Auth::user()->first_name}} {{  Auth::user()->last_name}}
             </p>
+            
             <p>User Status:
                 @php
                     $onlineDetails = Auth::user()->onlineDetails;

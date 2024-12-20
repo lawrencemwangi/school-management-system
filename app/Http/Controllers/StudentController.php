@@ -9,6 +9,7 @@ use App\Models\Classes;
 use App\Models\Dorm;
 use App\Models\Form;
 use App\Models\Subject;
+use App\Models\Teacher;
 use App\Models\Feestructure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -189,5 +190,11 @@ class StudentController extends Controller
         $subjectIds = json_decode($students->subjects, true) ?? []; 
         $subjects = Subject::whereIn('id', $subjectIds)->pluck('subject_name')->toArray();       
         return view('backend.student.view_details',compact('students', 'subjects'));
+    }
+
+    public function ShowTeachers()
+    {
+        $teachers = Teacher::all();
+        return view('backend.student.teachers.show_teachers',compact('teachers'));
     }
 }

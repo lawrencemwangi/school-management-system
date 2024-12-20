@@ -10,12 +10,13 @@ use App\Http\Controllers\StudentController;
 use App\Http\Controllers\ParentsController;
 use App\Http\Controllers\ClassesController;
 use App\Http\Controllers\DormController;
-use App\Http\controllers\DisciplineController;
-use App\Http\controllers\AttendanceController;
-use App\Http\controllers\FeestructureController;
-use App\Http\controllers\FormController;
-use App\Http\controllers\SubjectController;
-use App\Http\controllers\GradeController;
+use App\Http\Controllers\DisciplineController;
+use App\Http\Controllers\AttendanceController;
+use App\Http\Controllers\FeestructureController;
+use App\Http\Controllers\FormController;
+use App\Http\Controllers\SubjectController;
+use App\Http\Controllers\GradeController;
+use App\Http\Controllers\ResultController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -58,6 +59,7 @@ Route::middleware('teacher','last_seen', 'inactive')->group(function() {
     ->name('attendance.fetch-students');
     Route::get('/teacher/student', [StudentController::class, 'show'])->name('student.show');
     Route::get('/teacher/student/{student}', [StudentController::class, 'show_Student'])->name('view_student');
+    Route::resource('/teacher/result', ResultController::class);
 
 });
 
@@ -71,6 +73,7 @@ Route::middleware('student','last_seen', 'inactive')->group(function() {
     Route::get('/student/dashboard' , [DashboardController::class, 'index'])->name('student_dashboard');
     Route::get('/student/details', [StudentController::class, 'show_details'])->name('student_details');
     Route::get('student/feestructure', [FeestructureController::class, 'Viewfeestructure'])->name('view_feestructure');
+    Route::get('student/list_teachers', [StudentController::class, 'Showteachers'])->name('show_teachers');
 });
 
 

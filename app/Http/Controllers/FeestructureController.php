@@ -106,6 +106,7 @@ class FeestructureController extends Controller
         return view('backend.admin.fees.view_feestructure', compact('feestructure'));
     }
 
+    //student view feestructure function
     public function Viewfeestructure()
     {
         $feeData = Feestructure::all();

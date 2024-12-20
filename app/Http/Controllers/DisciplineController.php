@@ -65,7 +65,14 @@ class DisciplineController extends Controller
      */
     public function edit(Discipline $discipline)
     {
-        //
+        $students = Student::all();
+        $classes = Classes::all();
+        return view('backend.teacher.discipline.update_discipline', 
+        compact(
+            'students',
+            'classes',
+            'discipline'
+        ));
     }
 
     /**
@@ -73,7 +80,21 @@ class DisciplineController extends Controller
      */
     public function update(Request $request, Discipline $discipline)
     {
-        //
+        $validated = $request->validate([
+            'student_id' => 'required|integer|exists:students,id',
+            'class_id' => 'required|integer|exists:classes,id',
+        ]);
+
+        $discipline->student_id = $validated['student_id'];
+        $discipline->class_id = $validated['class_id'];
+        $discipline->discipline_type = $request->input('discipline_type');
+        $discipline->discipline_comment = $request->input('discipline_comment');
+        $discipline->update();
+
+        return redirect()->route('discipline.index')->with('success', [
+            'message' => 'Discipline details updated successfully',
+            'duration' => $this->alert_message_duration,
+        ]);
     }
 
     /**
@@ -81,6 +102,11 @@ class DisciplineController extends Controller
      */
     public function destroy(Discipline $discipline)
     {
-        //
+        $discipline->delete();
+
+        return redirect()->route('discipline.index')->with('success', [
+            'message' => 'Discipline details deleted successfully',
+            'duration' => $this->alert_message_duration,
+        ]);
     }
 }

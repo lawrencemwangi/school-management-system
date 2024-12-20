@@ -15,7 +15,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('emp_code')->unique();
             $table->string('emp_date');
-            $table->unsignedBigInteger('class_id')->nullable();
+            $table->unsignedBigInteger('class_id')->unique()->nullable();
             $table->json('subjects');
             $table->timestamps();
 

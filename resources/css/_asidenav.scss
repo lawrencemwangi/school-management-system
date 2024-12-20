@@ -101,11 +101,7 @@ $collapsed_width: 70px;
            
             li{
                 padding: 0.2em;
-                @include flex_center;
-                justify-content: left;
-                gap: 0.5em; 
-                position: relative;
-                display: inline-block;
+            
                 
                 .submenu{
                     display: none;
@@ -119,6 +115,15 @@ $collapsed_width: 70px;
                     border-radius: 4px;
                     min-width: 150px;
                     z-index: 1;
+                    position: relative;
+
+
+                    li{
+                        @include flex_center;
+                        justify-content: left;
+                        gap: 0.2em;  
+                        position: relative;
+                    }
                   
                     a{
                         @include anchor;
@@ -136,7 +141,8 @@ $collapsed_width: 70px;
                     background: $primary-color;
                     color: $secondary-color;
                     border-radius: 4px;
-                    padding: 0.2em;
+                    padding: 0.1em 0.3em;
+                    margin: 0.1em;
 
                     a{
                         color: $secondary-color;
@@ -183,8 +189,8 @@ $collapsed_width: 70px;
 }
 
 
-@media screen and (width <=762px) {
-    .aside_container{
+// @media screen and (width <=762px) {
+//     .aside_container{
        
-    }
-}
+//     }
+// }

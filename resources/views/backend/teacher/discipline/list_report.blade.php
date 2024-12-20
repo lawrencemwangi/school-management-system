@@ -23,13 +23,16 @@
                         <span class="user-col">{{ $discipline->discipline_type }}</span>
                         <span class="user-col">{{ $discipline->discipline_comment }}</span>
                         <span class="action">
-                            <a href="#">
+                            <a href="{{ route('discipline.edit', ['discipline' => $discipline]) }}">
                                 <i class="fas fa-pencil-alt"></i>
                             </a>
 
-                            <form action="#" method="post">
-                                <a href="#">
-                                    <i class="fa fa-trash"></i>
+                            <form id="deleteForm_{{ $discipline->id }}" action="{{ route('discipline.destroy', ['discipline' => $discipline->id]) }}" method="post">
+                                @csrf
+                                @method("DELETE")
+
+                                <a href="javascript:void(0)" onclick="deleteItem({{  $discipline->id }},'disciplines');">
+                                    <i class="fa fa-trash-alt"></i>
                                 </a>
                             </form>
                         </span>

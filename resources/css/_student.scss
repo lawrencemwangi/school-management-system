@@ -61,4 +61,30 @@
             }
         }
     }
+
+    .teachers_infor{
+        padding: 0.5em;
+        font-size: 1.1em;
+        display: flex;
+        gap: 1.1em;
+        
+        img{
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+        }
+
+        ul{
+            list-style: none;
+
+            li{
+                padding: 0.2em 0;
+
+                span{
+                    padding: 0 0.5em;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
 }
