@@ -87,6 +87,7 @@ class DashboardController extends Controller
                 ['icon' => 'fa fa-table', 'route' => 'student_dashboard','label' => 'Timetable' ],
                 ['icon' => 'fa fa-chart-line', 'route' => 'student_dashboard', 'label' => 'Reports' ],
                 ['icon' => 'fa fa-users', 'route' => 'show_teachers', 'label' => 'Teachers' ],
+                ['icon' => 'fa fa-user-shield', 'route' => 'show_discipline', 'label' => 'Discipline' ],
                 ['icon' => 'fa fa-receipt', 'label' => 'Financials', 'submenu' =>
                     [
                         ['icon' => 'fa fa-coins', 'route' => 'view_feestructure' ,'label' => 'Fee structure'],

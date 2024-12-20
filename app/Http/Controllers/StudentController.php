@@ -11,6 +11,7 @@ use App\Models\Form;
 use App\Models\Subject;
 use App\Models\Teacher;
 use App\Models\Feestructure;
+use App\Models\Discipline;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -196,5 +197,14 @@ class StudentController extends Controller
     {
         $teachers = Teacher::all();
         return view('backend.student.teachers.show_teachers',compact('teachers'));
+    }
+
+    public function ShowDiscipline()
+    {
+        $user = auth()->user();
+        // dd($user);
+        $disciplines = Discipline::where('student_id', $user->student->id)->get();
+        // dd($disciplines);
+        return view('backend.student.discipline.show_discipline', compact('disciplines'));
     }
 }

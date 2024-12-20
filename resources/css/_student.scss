@@ -87,4 +87,20 @@
             }
         }
     }
+
+    .discipline_cases{
+        padding: 0.5em;
+        font-size: 1.1em;
+
+        p{
+            span{
+                padding: 0 0.3em;
+                font-weight: 550;
+            }
+        }
+
+        h4{
+            text-decoration: underline;
+        }
+    }
 }

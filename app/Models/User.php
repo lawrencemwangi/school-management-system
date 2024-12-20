@@ -121,4 +121,9 @@ class User extends Authenticatable implements MustVerifyEmail
             ? asset('storage/users/' . $this->image) 
             : asset('assets/images/user.png'); 
     }
+
+    public function student()
+    {
+        return $this->hasOne(Student::class);
+    }
 }

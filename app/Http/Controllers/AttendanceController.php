@@ -135,9 +135,15 @@ class AttendanceController extends Controller
      */
     public function destroy(Attendance $attendance)
     {
-        //
+        // $attendance->delete();
+
+        // return redirect()->route('attendance.index')->with('success', [
+        //     'message' => 'Attendance deleted successfully',
+        //     'duration' => $this->alert_message_duration,
+        // ]);
     }
 
+    
     public function fetchStudents(Request $request)
     {
         $class_id = $request->class_id;

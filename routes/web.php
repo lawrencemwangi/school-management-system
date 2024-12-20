@@ -74,6 +74,7 @@ Route::middleware('student','last_seen', 'inactive')->group(function() {
     Route::get('/student/details', [StudentController::class, 'show_details'])->name('student_details');
     Route::get('student/feestructure', [FeestructureController::class, 'Viewfeestructure'])->name('view_feestructure');
     Route::get('student/list_teachers', [StudentController::class, 'Showteachers'])->name('show_teachers');
+    Route::get('student/discipline', [StudentController::class, 'ShowDiscipline'])->name('show_discipline');
 });
 
 
