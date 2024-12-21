@@ -8,8 +8,14 @@
 
             @else
                 @foreach ($disciplines as $discipline)
+                    <p>Student Names: 
+                        <span>
+                            {{ $discipline->student->user->first_name }} {{ $discipline->student->user->last_name }}
+                        </span>
+                    </p>
                     <p>Discipline Type: <span>{{ $discipline->discipline_type }}</span></p>
-                    <p>Recorded On: <span>{{ $discipline->created_at }}</span></p> <br>
+                    <p>Recorded On: <span>{{ $discipline->created_at }}</span></p> 
+                    <br>
 
                     <h4>Disciplinary Reason</h4>
                     <p>{{ $discipline->discipline_comment }}</p>

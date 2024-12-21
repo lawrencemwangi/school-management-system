@@ -83,6 +83,11 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(Attendance::class);
     }
 
+    public function discipline() 
+    {
+        return $this->belongTo(Discipline::class);
+    }
+
 
     protected $casts = [
         'last_seen' => 'datetime',
