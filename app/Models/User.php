@@ -98,7 +98,7 @@ class User extends Authenticatable implements MustVerifyEmail
     public function getOnlineDetailsAttribute()
     {
         if ($this->last_seen) {
-            if ($this->last_seen->diffInMinutes(Carbon::now()) < 5) {
+            if ($this->last_seen->diffInMinutes(Carbon::now()) < 3) {
                 return ['status' => 'Online', 'class' => 'text_success'];
             }
             return [
